@@ -1,0 +1,28 @@
+{
+  "name": "CultureNumTC — TD1",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [
+    8000
+  ],
+  "portsAttributes": {
+    "8000": {
+      "label": "TD1 — HTTP",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "MS-CEINTL.vscode-language-pack-fr",
+        "GitHub.copilot-chat"
+      ],
+      "settings": {
+        "files.autoSave": "off",
+        "editor.formatOnSave": false
+      }
+    }
+  },
+  "postCreateCommand": "python3 --version && command -v ping && command -v traceroute && command -v nslookup"
+}
