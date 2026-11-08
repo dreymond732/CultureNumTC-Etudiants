@@ -1,0 +1,35 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/",
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "login": true,
+  "steps": [
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "git:directory",
+        "url": "https://github.com/dreymond732/CultureNumTC-Etudiants.git",
+        "ref": "prototype/td5-playground-td6-sqlite",
+        "refType": "branch",
+        "path": "prototypes/but-boutique-wp/theme-but-boutique"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "BUT-Boutique · Toulon",
+        "blogdescription": "Prototype pédagogique de site dynamique"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php\nrequire_once '/wordpress/wp-load.php';\n// Fixture synthétique : aucune personne ni transaction réelle.\n// Supprime uniquement le contenu de démonstration du Playground fraîchement créé.\n$existing = get_posts(array('numberposts' => -1, 'post_type' => array('post','page'), 'post_status' => 'any'));\nforeach ($existing as $post) { wp_delete_post($post->ID, true); }\n$pages = array(\n  array('slug'=>'accueil','title'=>'Bienvenue chez BUT-Boutique',\n        'content'=>'<!-- wp:paragraph --><p>Cette boutique est fictive. Vous étudierez comment un CMS fabrique une page à partir de contenus enregistrés dans une base de données et d’un thème.</p><!-- /wp:paragraph --><!-- wp:heading {\"level\":2} --><h2 class=\"wp-block-heading\">Une page calculée par WordPress</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Le contenu que vous lisez est modifiable dans Pages → Toutes les pages. La présentation dépend du thème BUT-Boutique.</p><!-- /wp:paragraph -->'),\n  array('slug'=>'mug-but','title'=>'Mug BUT',\n        'content'=>'<!-- wp:paragraph --><p>Le Mug BUT est proposé ici pour 12,50 € (prix fictif). Modifiez son prix à 14,50 € dans l’éditeur WordPress et comparez le contenu de la base de données.</p><!-- /wp:paragraph --><!-- wp:list --><ul><li>Produit fictif</li><li>Prix initial : 12,50 €</li><li>Illustration pédagogique : aucune commande réelle</li></ul><!-- /wp:list -->'),\n  array('slug'=>'t-shirt-tc','title'=>'T-shirt TC',\n        'content'=>'<!-- wp:paragraph --><p>T-shirt TC : 24,00 € (prix fictif). Le modèle de présentation est partagé avec la page Mug BUT.</p><!-- /wp:paragraph -->'),\n  array('slug'=>'notre-demarche','title'=>'Notre démarche',\n        'content'=>'<!-- wp:paragraph --><p>Objectif : comprendre la différence entre les fichiers du thème, les contenus édités et les données enregistrées en base. Pas de commerce réel ni de données personnelles.</p><!-- /wp:paragraph -->')\n);\n$home_id = 0;\nforeach ($pages as $page) {\n  $id = wp_insert_post(array(\n    'post_type'=>'page','post_status'=>'publish','post_author'=>1,\n    'post_name'=>$page['slug'],'post_title'=>$page['title'],\n    'post_content'=>$page['content']\n  ), true);\n  if (is_wp_error($id) || !$id) {\n    throw new RuntimeException('Échec création page : ' . $page['slug']);\n  }\n  if ($page['slug']==='accueil') { $home_id=(int)$id; }\n}\nupdate_option('show_on_front', 'page');\nupdate_option('page_on_front', $home_id);\nupdate_option('blogname','BUT-Boutique · Toulon');\nupdate_option('blogdescription','Prototype pédagogique : contenu + thème + base SQLite');\n"
+    }
+  ]
+}
