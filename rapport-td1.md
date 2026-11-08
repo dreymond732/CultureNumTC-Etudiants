@@ -1,10 +1,12 @@
 # TD1 — Mon appareil, Internet et le Web
-Ce fichier sert à noter **mes réponses au fur et à mesure**. Aucun nom, numéro étudiant, mot de passe ou jeton n'est demandé ici.
+Ce fichier sert à noter **mes réponses au fur et à mesure**. Ne pas y renseigner de nom, prénom, numéro étudiant, groupe, mot de passe ou jeton. Le rapport reste dans mon Codespace personnel tant que je ne le publie pas sur GitHub.
 
-## Avant de commencer — Markdown
-- J'ai ouvert ce fichier dans l'éditeur Codespaces :
-- J'ai compris que `##` est un titre et `- ` marque une liste :
-- Pour les commandes locales, j'utilise : mon ordinateur / celui de mon voisin (entourer ou préciser).
+## Avant de commencer — formation Codespaces
+- J'ai ouvert mon Codespace depuis GitHub :
+- J'ai repéré l'Explorateur, l'éditeur et le terminal :
+- J'ai ouvert ce rapport et rédigé une phrase :
+- Je distingue le dépôt public de mon Codespace personnel :
+- Pour les commandes locales, j'utilise mon ordinateur ou celui du voisin si tablette :
 
 ## Exercice 1 — Les outils que j'utilise déjà
 Compléter avec mes propres mots la colonne de droite ; le premier exemple est fourni.
@@ -58,16 +60,14 @@ Compléter avec mes propres mots la colonne de droite ; le premier exemple est f
 - Comment j'ai téléchargé mon fichier depuis Codespaces vers le poste local :
 - Pourquoi un fichier présent dans Codespaces n'est-il pas automatiquement dans mes Téléchargements ?
 
-## Exercice 6 — Serveur HTTP, navigateur et curl dans CODESPACES
-- Commande qui lance le serveur :
-- J'ai ouvert la page avec le navigateur par le panneau Ports :
-- Code de réponse de `curl -I` pour la frise :
-- Code de réponse pour `page-absente.html` :
-- Client lorsque je consulte avec un navigateur :
-- Client lorsque je consulte avec `curl` :
-- Serveur et machine sur laquelle il fonctionne :
-- Ce que signifient les réponses 200 et 404 :
-- Comment j'ai arrêté le serveur :
+## Exercice 6 — Distinguer un fichier local et une page Web
+- Début de l'adresse de la frise téléchargée : `file:` ou autre :
+- Début de l'adresse de la frise sur le portail : `https:` ou autre :
+- Ce que les deux présentations ont en commun :
+- Quelle est la différence entre les deux origines du document ?
+- Quel logiciel est le client pour la page du portail ?
+- Que se passe-t-il pour une adresse de document inexistant ?
+- Au TD2, que permettront le serveur Codespaces et `curl` ?
 
 ## Exercice 7 — Deux mini-diagnostics
 Choisir deux situations du TD, ne remplir que les deux lignes ci-dessous.
