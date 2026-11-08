@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 250" role="img" aria-labelledby="title desc">
+<title id="title">Illustration stylisée d'un ancien navigateur Web</title>
+<desc id="desc">Fenêtre d'un navigateur des années 1990 représentée avec trois blocs graphiques et une barre d'adresse.</desc>
+<rect width="380" height="250" fill="#eef4fb" rx="12"/>
+<rect x="32" y="28" width="315" height="193" rx="10" fill="#fff" stroke="#294f83" stroke-width="7"/>
+<rect x="32" y="28" width="315" height="39" rx="7" fill="#cbdff4"/>
+<circle cx="58" cy="47" r="7" fill="#e56b6f"/><circle cx="80" cy="47" r="7" fill="#e7b04f"/><circle cx="102" cy="47" r="7" fill="#6ca98a"/>
+<rect x="48" y="80" width="282" height="18" rx="4" fill="#d4e6f6"/>
+<rect x="48" y="109" width="145" height="20" rx="4" fill="#264d79"/>
+<rect x="48" y="141" width="106" height="57" rx="5" fill="#a8d2eb"/>
+<rect x="165" y="141" width="166" height="10" rx="4" fill="#a8c7db"/>
+<rect x="165" y="159" width="151" height="10" rx="4" fill="#a8c7db"/>
+<rect x="165" y="177" width="125" height="10" rx="4" fill="#a8c7db"/>
+</svg>
