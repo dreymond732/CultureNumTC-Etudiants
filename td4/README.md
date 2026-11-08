@@ -4,6 +4,8 @@
 
 Le TD4 est une **évaluation intermédiaire** des compétences travaillées aux TD1, TD2 et TD3. Contrairement aux exercices guidés précédents, les transformations demandées doivent être réalisées **sans assistance IA/Copilot**.
 
+**Avant l’évaluation :** si le dossier `td4/` n’apparaît pas dans un Codespace créé avant la mise à jour du dépôt, conservez vos anciens fichiers et demandez comment actualiser le Codespace sans perdre vos réponses. Arrêtez d’abord tout serveur resté actif après un précédent TD (avec `Ctrl+C` dans son terminal) afin de libérer les ports.
+
 ## Fichiers de départ
 - `td4/site-a/histoire-web.html` : **votre production à modifier**. Contient une frise historique, des blocs CSS à compléter et un panneau « Aide-sélecteur CSS » déjà prêt.
 - `td4/site-a/images/mosaic.svg` : illustration locale disponible pour une image HTML.
