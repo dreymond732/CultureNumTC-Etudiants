@@ -53,9 +53,9 @@ Pour découvrir ce que répond un simple serveur de fichiers lorsqu'on lui envoi
 curl -i -X POST -d 'essai=TC' http://127.0.0.1:8000/histoire-web.html
 ```
 
-Il n'y a **aucune donnée personnelle** dans `essai=TC`. Le serveur Python utilisé ne possède pas de programme de réception et de traitement des formulaires : ne vous attendez pas à ce que votre saisie soit enregistrée. Notez **le code HTTP effectivement observé** et la nouvelle ligne du journal.
+Il n'y a **aucune donnée personnelle** dans `essai=TC`. Le serveur Python utilisé ne possède pas de programme de réception et de traitement des formulaires : ne vous attendez pas à ce que votre saisie soit enregistrée. Notez **le code HTTP effectivement observé** et la nouvelle ligne du journal. Dans `rapport-td4.md`, copiez les lignes de journaux dans les deux blocs prévus « Journal A — port 8000 » et « Journal B — port 8001 » ; le correcteur en vérifie les éléments techniques. Ne remplacez pas les observations par une simple affirmation sans traces.
 
 ## Fin du contrôle
-Arrêtez les deux serveurs avec `Ctrl+C` dans leurs terminaux. Téléchargez sur votre appareil une copie de `td4/site-a/histoire-web.html` et `td4/rapport-td4.md`. Ne publiez pas vos réponses sur GitHub ; l'enseignant indiquera le canal de remise.
+Arrêtez les deux serveurs avec `Ctrl+C` dans leurs terminaux. Téléchargez sur votre appareil une copie de `td4/site-a/histoire-web.html` et `td4/rapport-td4.md`. Depuis le portail du cours, ouvrez la **plateforme d'évaluation TD4** et sélectionnez **ces deux fichiers**. Le correcteur calcule une note **partielle et provisoire**, avec deux points de raisonnement nécessitant une relecture par l'enseignant. Si la plateforme indique **mode démonstration**, aucune remise n'est enregistrée : gardez les fichiers et suivez les consignes du professeur. N'utilisez pas Git pour publier vos réponses.
 
 Les consignes détaillées et le barème sont sur le portail CultureNumTC, dans **TD4 — Évaluation intermédiaire**.
