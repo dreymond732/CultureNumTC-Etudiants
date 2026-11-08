@@ -21,7 +21,7 @@ Compléter avec mes propres mots la colonne de droite ; le premier exemple est f
 | Internet | Réseau de réseaux | |
 | Serveur Web | Logiciel qui répond aux demandes de pages | |
 
-**Attention — public ou privé ?** Votre Codespace est personnel. Le dépôt de départ de BUT TC Toulon est public. Une page rendue accessible par un **port Web public** ou un fichier publié sur un **dépôt GitHub public** peut être consulté par d’autres. Ne publiez pas vos rapports ni de données personnelles.
+**Attention — public ou privé ?** Votre Codespace est personnel. Le dépôt de départ de BUT TC Toulon appartient à l’enseignant et est public. Une page rendue accessible par un **port Web public** ou un fichier publié sur un **dépôt GitHub public** peut être consulté par d’autres. **Nous n’utilisons pas les outils Git pour ces TD.** Ne publiez pas vos rapports ni de données personnelles.
 
 ### Mon usage de Wix
 1. Je vois directement les fichiers HTML de mon CV (oui/non) :
