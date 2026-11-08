@@ -46,7 +46,15 @@ Au départ, le contenu du dépôt GitHub public est copié dans votre espace per
 
 Un Codespace arrêté depuis longtemps peut être supprimé automatiquement (par défaut après 30 jours d'inactivité, selon les réglages GitHub). **Téléchargez des copies** de vos documents de travail pour ne pas les perdre.
 
-**L’outil Git n’est pas une sauvegarde automatique.** Un `commit` garde une version dans le Codespace ; si celui-ci disparaît, ce commit local disparaît également. Un `push` vers un dépôt personnel permettrait une sauvegarde durable, mais GitHub pourrait créer un **fork public** du dépôt de départ. **Ne publiez jamais vos réponses dans ce fork public.** Pour les premiers TD, nous conservons une copie locale de nos rapports : l’usage de Git pour sauvegarder n’est pas demandé.
+## Pourquoi Git apparaît-il dans Codespaces ?
+
+**Git** est un logiciel libre de gestion des versions créé par **Linus Torvalds en 2005** pour le développement du noyau Linux. Il permet de retrouver l'historique des modifications d'un projet dans des *commits* et de travailler à plusieurs. **GitHub** est une plateforme d'hébergement de dépôts Git, **rachetée par Microsoft en 2018**. Ce n'est pas Git qui a été racheté.
+
+Références : [Une rapide histoire de Git](https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Une-rapide-histoire-de-Git) · [Microsoft annonce la finalisation du rachat de GitHub](https://blogs.microsoft.com/blog/2018/10/26/microsoft-completes-github-acquisition/).
+
+**Nous n'utilisons pas les outils Git pour ces TD.** Le dépôt `CultureNumTC-Etudiants` appartient à l'enseignant et est **public** : ce n'est pas votre dépôt personnel. Vous pouvez voir dans Codespaces l'icône de contrôle de code source, des boutons *Commit*, *Sync* ou *Push* ; **ne les utilisez pas pour vos travaux**. GitHub pourrait créer un **fork public** du dépôt, qui exposerait vos réponses.
+
+**Un commit local n'est pas une sauvegarde à long terme :** il est conservé dans le Codespace seulement et disparaîtrait avec celui-ci. Plus tard, nous pourrons découvrir la création d'un **dépôt GitHub personnel privé** pour enregistrer durablement les modifications et leur historique. Pour l'instant, enregistrez dans Codespaces et **téléchargez une copie des fichiers importants**.
 
 ## En fin de TD
 
