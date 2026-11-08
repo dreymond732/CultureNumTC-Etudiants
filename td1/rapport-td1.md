@@ -42,23 +42,27 @@ Compléter avec mes propres mots la colonne de droite ; le premier exemple est f
 - POSTE LOCAL : commande `dir` ou `ls`, ce que je vois :
 - CODESPACES : commande `pwd`, ce que j'obtiens :
 - CODESPACES : commande `ls`, ce que je vois :
-- CODESPACES : effet de `cd donnees`, puis de `cd ..` :
+- CODESPACES : effet de `cd td1/donnees`, puis de `cd ..` :
 
-## Exercice 4 — Diagnostics réseau sur le POSTE LOCAL
-- Commande `ping 127.0.0.1` : observation (ou erreur) :
-- Commande `ping example.org` : observation (ou erreur) :
-- Commande `nslookup example.org` : observation (ou erreur) :
-- Commande `tracert` ou `traceroute example.org` : observation (ou erreur) :
-- Pourquoi `ping 127.0.0.1` ne prouve-t-il pas que l'accès Internet fonctionne ?
-- À quoi sert `nslookup` ?
-- Que peuvent montrer les étapes du trajet réseau ?
-- Pourquoi un `ping` sans réponse ne prouve-t-il pas que le Web est coupé ?
+## Exercice 4 — Diagnostic réseau sur le poste local et terminal simulé
+- **POSTE LOCAL** (ou ordinateur du voisin) : mon résultat de `ping 127.0.0.1` :
+- **POSTE LOCAL** : mon résultat de `ping example.org` ou le message d'erreur :
+- **POSTE LOCAL** : ce que montre `nslookup example.org` :
+- **POSTE LOCAL** : ce que montre `tracert` / `traceroute example.org` :
+- **CODESPACES** : j'ai affiché `td1/terminal-reseau.html` par le port 8000, resté **Private** :
+- Sur la simulation du premier `ping`, j'observe ... paquets envoyés, ... réponses et ... % de perte :
+- Sur le second `ping`, que signifie « 4 packets transmitted, 0 received, 100% packet loss » ?
+- Pourquoi ce résultat ne prouve-t-il pas que tout Internet est en panne ?
+- Dans la simulation, `nslookup` indique quoi ?
+- Dans `traceroute`, les astérisques `* * *` signifient quoi ?
+- Une différence entre mon résultat réel et la simulation :
+- J'ai arrêté le serveur privé Codespaces avec `Ctrl+C` :
 
 ## Exercice 5 — Transfert entre le poste local et Codespaces
 - Fichier créé sur le poste local :
-- Comment je l'ai envoyé vers Codespaces :
+- Comment je l'ai envoyé vers le dossier `td1/` dans Codespaces :
 - Ce que j'ai vérifié dans l'éditeur Codespaces :
-- Fichiers déjà présents dans le dossier `donnees` :
+- Fichiers déjà présents dans le dossier `td1/donnees` :
 - Comment j'ai téléchargé mon fichier depuis Codespaces vers le poste local :
 - Pourquoi un fichier présent dans Codespaces n'est-il pas automatiquement dans mes Téléchargements ?
 

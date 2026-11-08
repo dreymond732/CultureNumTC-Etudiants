@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TD1 — Simulateur de terminal réseau — BUT TC Toulon</title>
+  <style>
+    :root{color-scheme:light;--paper:#f3f6fb;--ink:#16263b;--muted:#45566b;--accent:#175d86;--terminal:#101827;--terminalInk:#dce7f2}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.58 system-ui,-apple-system,Segoe UI,sans-serif}
+    main{max-width:980px;margin:auto;padding:1rem 1rem 3rem}
+    header{background:#142f50;color:white;padding:1.1rem max(1rem,calc((100% - 950px)/2));}
+    header h1{font-size:clamp(1.5rem,3vw,2rem);margin:.3rem 0}
+    header p{margin:0;color:#dbeafe}
+    .warning{border-left:5px solid #b45309;background:#fff8e8;padding:.8rem 1rem;margin:1rem 0;border-radius:8px}
+    .info{border:1px solid #d8e4ee;background:white;border-radius:10px;padding:.8rem 1rem}
+    .info h2{font-size:1.05rem;margin:0 0 .35rem}
+    code{font:inherit;background:#e9edf5;border-radius:4px;padding:0 .23rem}
+    .control{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin:1rem 0}
+    button{background:var(--accent);color:white;border:0;border-radius:8px;padding:.68rem 1.05rem;font:inherit;font-weight:650;cursor:pointer}
+    button.secondary{background:#34445a}
+    button:disabled{opacity:.45;cursor:not-allowed}
+    button:focus-visible,a:focus-visible{outline:3px solid #d97706;outline-offset:3px}
+    #status{margin:0 0 .5rem;font-size:.94rem;font-weight:650;color:var(--muted)}
+    .shell{background:var(--terminal);color:var(--terminalInk);border:1px solid #334155;border-radius:12px;overflow:hidden;box-shadow:0 8px 22px #1e293b20}
+    .shell-head{background:#202e41;border-bottom:1px solid #465365;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.65rem .85rem}
+    .dots{display:flex;gap:.35rem}.dot{height:.65rem;width:.65rem;background:#fb7185;border-radius:50%}.dot:nth-child(2){background:#fde047}.dot:nth-child(3){background:#4ade80}
+    .shell-head strong{font:600 .83rem ui-monospace,SFMono-Regular,Consolas,monospace;color:#e2e8f0}
+    pre{margin:0;min-height:260px;padding:1.2rem;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font:clamp(.8rem,1.7vw,.94rem)/1.72 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace}
+    .line{display:block;white-space:pre-wrap}.prompt{color:#7dd3fc;font-weight:650}.reply{color:#bbf7d0}.alert{color:#fdba74}.summary{color:#fef08a;font-weight:650}.neutral{color:#dce7f2}
+    .interpret{margin:1rem 0;background:#eaf5ff;border-left:5px solid #2563eb;border-radius:8px;padding:.8rem 1rem}
+    .interpret h2{font-size:1.12rem;margin:0 0 .3rem}
+    .interpret p{margin:.35rem 0}
+    .readout{display:flex;gap:.4rem;flex-wrap:wrap;margin:1rem 0}
+    .tag{border:1px solid #94a3b8;padding:.2rem .55rem;border-radius:25px;font-size:.85rem;background:#fff}
+    .small{font-size:.89rem;color:var(--muted)}
+    @media(max-width:620px){main{padding:.75rem .7rem 2rem}.control button{flex-grow:1}pre{padding:.8rem;min-height:215px}.shell-head{padding:.5rem}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+<header><p>BUT TC Toulon · Culture numérique · TD1</p><h1>Les commandes réseau vues comme dans un terminal</h1><p>Observer les résultats de ping, DNS, traceroute et HTTP — sans lancer de véritables tests.</p></header>
+<main>
+  <div class="warning" role="note"><strong>Simulation pédagogique — aucun réseau n’est testé.</strong> Les sorties affichées sont <strong>inventées pour apprendre à les lire</strong>. Elles ne décrivent pas le réseau de l’IUT de Toulon, de votre ordinateur, ni de votre Codespace. Les durées et certains résultats changent lors d’une nouvelle exécution. <strong>Ne confondez pas une simulation avec la commande exécutée sur votre poste local.</strong></div>
+  <div class="info"><h2>Comment utiliser cette page ?</h2><p>Appuyez sur <strong>« Jouer la commande »</strong>, observez chaque ligne jusqu’au résumé, puis cliquez sur <strong>« Commande suivante »</strong>. Les six exemples suivent l’ordre du TD. Les commandes <code>ping</code>, <code>nslookup</code> et <code>traceroute</code> sont à essayer sur un <strong>vrai ordinateur local</strong> (ou celui du voisin si vous utilisez une tablette). Cette page aide à interpréter leurs résultats ; elle ne les remplace pas.</p></div>
+  <div class="readout"><span class="tag" id="position">Commande 1 sur 6</span><span class="tag">Sorties de démonstration</span><span class="tag">Terminal de style Bash</span></div>
+  <h2 id="scenario-title">1. Tester son propre ordinateur</h2>
+  <p class="small" id="objective">Une adresse spéciale permet à un ordinateur de se répondre à lui-même.</p>
+  <div class="control">
+    <button type="button" id="run">Jouer la commande</button>
+    <button type="button" id="next" class="secondary" disabled>Commande suivante</button>
+    <button type="button" id="reset" class="secondary">Recommencer la série</button>
+  </div>
+  <p id="status" role="status" aria-live="polite">Exemple prêt. Cliquez sur « Jouer la commande ».</p>
+  <div class="shell" aria-labelledby="terminal-title">
+    <div class="shell-head"><span class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><strong id="terminal-title">etudiant@but-tc-toulon:~ — terminal simulé</strong><span aria-hidden="true">▣</span></div>
+    <pre id="terminal" role="log" aria-live="off" aria-label="Sortie simulée de la commande réseau"><span class="prompt">etudiant@but-tc-toulon:~$</span> <span class="neutral"># choisissez « Jouer la commande »</span></pre>
+  </div>
+  <div class="interpret" aria-live="polite">
+    <h2>Comment lire ce résultat ?</h2>
+    <p id="interpretation">La question est : que permet de vérifier une réponse provenant de son propre ordinateur ?</p>
+    <p id="limite"><strong>Attention :</strong> une réponse locale ne démontre pas que la connexion Internet fonctionne.</p>
+  </div>
+  <div class="info">
+    <h2>Les repères à chercher dans les résultats</h2>
+    <p><strong><code>icmp_seq</code></strong> numérote les sondes de <code>ping</code> ; <strong><code>time=</code></strong> donne un délai en millisecondes ; <strong><code>packets transmitted</code></strong> indique combien de sondes ont été envoyées ; <strong><code>received</code></strong> combien ont répondu. <strong><code>packet loss</code></strong> est le pourcentage de sondes sans réponse. <strong><code>* * *</code></strong> dans <code>traceroute</code> signifie qu’une étape ne répond pas aux sondes : ce n’est pas nécessairement une panne. Les codes HTTP <strong>200</strong> et <strong>404</strong> seront manipulés au TD2.</p>
+    <p class="small">Pour éviter de désigner de vrais équipements, les adresses utilisées dans les exemples de réseau sont des adresses de démonstration. Les sorties des commandes réelles peuvent différer entre Windows, macOS et Linux. L’affichage proposé reprend un style de terminal Unix, à titre d’apprentissage.</p>
+  </div>
+</main>
+<script>
+(function () {
+  "use strict";
+  var scenarios = [
+    {label:"Tester son propre ordinateur", objective:"La cible 127.0.0.1 désigne l'ordinateur qui lance la commande.", cmd:"ping -c 4 127.0.0.1", type:"loop",
+      good:"Quatre sondes ont été envoyées et quatre réponses sont revenues. Le résumé annonce 0 % de perte. La commande teste le fonctionnement de la communication avec la machine elle-même.",
+      limit:"Cela ne démontre pas que l'ordinateur peut communiquer avec Internet."},
+    {label:"Observer une cible qui ne répond pas", objective:"La cible 198.51.100.42 est une adresse choisie pour cette démonstration, pas un ordinateur de l'IUT.", cmd:"ping -c 4 198.51.100.42", type:"loss",
+      good:"Quatre sondes ont été envoyées et aucune réponse n'est revenue. « 100% packet loss » signifie que les quatre sondes sont restées sans réponse.",
+      limit:"Il est impossible de conclure que tout Internet est en panne : les réponses peuvent être bloquées ou la cible inaccessible."},
+    {label:"Faire correspondre un nom et une adresse IP", objective:"Le DNS retrouve une adresse à partir d'un nom de domaine.", cmd:"nslookup example.org", type:"dns",
+      good:"La sortie montre un serveur DNS interrogé et une adresse IP associée au nom example.org. Dans cette simulation, les adresses sont inventées pour l'exemple.",
+      limit:"Obtenir une adresse IP par DNS ne garantit pas que la page Web de ce nom fonctionne."},
+    {label:"Observer des étapes sur le trajet réseau", objective:"Traceroute essaie d'afficher les équipements intermédiaires qui répondent.", cmd:"traceroute example.org", type:"route",
+      good:"Les numéros 1, 2, 3… désignent des étapes. Les temps en ms sont les délais des sondes. Une ligne « * * * » signifie qu'aucune des sondes de cette étape n'a reçu de réponse.",
+      limit:"Une étape sans réponse n'indique pas à elle seule que le trajet est interrompu. Certains équipements ne répondent pas."},
+    {label:"Un document trouvé par un serveur Web (aperçu TD2)", objective:"curl est un client HTTP : -I ne demande que les en-têtes de la réponse.", cmd:"curl -I http://127.0.0.1:8000/td1/frise-histoire-web.html", type:"ok",
+      good:"Le serveur répond « 200 OK » : il a trouvé la ressource demandée à cette adresse.",
+      limit:"Ce résultat simulé n'indique pas qu'un véritable serveur est déjà lancé sur votre Codespace. Nous l'utiliserons réellement au TD2."},
+    {label:"Un document absent du serveur Web (aperçu TD2)", objective:"Une URL différente peut désigner un fichier absent.", cmd:"curl -I http://127.0.0.1:8000/td1/page-absente.html", type:"notfound",
+      good:"« 404 Not Found » signifie que la ressource demandée à cette URL n'a pas été trouvée par le serveur.",
+      limit:"404 ne signifie ni que le navigateur est en panne, ni qu'Internet est coupé."}
+  ];
+  var index = 0, busy = false, generation = 0;
+  var log = document.getElementById("terminal");
+  var run = document.getElementById("run");
+  var next = document.getElementById("next");
+  var reset = document.getElementById("reset");
+  var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function write(text, style) {
+    var span = document.createElement("span");
+    span.className = "line " + (style || "neutral");
+    span.textContent = text;
+    log.appendChild(span);
+    log.scrollTop = log.scrollHeight;
+  }
+  function between(a,b){return a+Math.random()*(b-a);}
+  function ms(a,b){return between(a,b).toFixed(3);}
+  function sceneLines(sc) {
+    var lines = [], packets = 4, received = 0, times = [], n, t;
+    if (sc.type === "loop" || sc.type === "loss") {
+      var address = sc.type === "loop" ? "127.0.0.1" : "198.51.100.42";
+      lines.push(["PING "+address+" ("+address+") 56(84) bytes of data.","neutral"]);
+      for (n = 1; n <= packets; n++) {
+        if (sc.type === "loop") {
+          t = between(0.03,0.095);
+          times.push(t);
+          received++;
+          lines.push(["64 bytes from "+address+": icmp_seq="+n+" ttl=64 time="+t.toFixed(3)+" ms","reply"]);
+        } else {
+          lines.push(["Request timeout for icmp_seq="+n,"alert"]);
+        }
+      }
+      lines.push(["","neutral"]);
+      lines.push(["--- "+address+" ping statistics ---","summary"]);
+      lines.push([packets+" packets transmitted, "+received+" received, "+(100*(packets-received)/packets).toFixed(0)+"% packet loss","summary"]);
+      if (times.length) {
+        var min=Math.min.apply(null,times), max=Math.max.apply(null,times), sum=times.reduce(function(a,b){return a+b;},0);
+        lines.push(["rtt min/avg/max = "+min.toFixed(3)+"/"+(sum/times.length).toFixed(3)+"/"+max.toFixed(3)+" ms","neutral"]);
+      }
+    } else if (sc.type === "dns") {
+      lines = [
+        ["Server:         192.0.2.53","neutral"],
+        ["Address:        192.0.2.53#53","neutral"],
+        ["","neutral"],
+        ["Non-authoritative answer:","neutral"],
+        ["Name:           example.org","reply"],
+        ["Address:        198.51.100.15","reply"]
+      ];
+    } else if (sc.type === "route") {
+      lines = [
+        ["traceroute to example.org (198.51.100.15), 30 hops max, 60 byte packets","neutral"],
+        [" 1  192.0.2.1       "+ms(0.5,2.0)+" ms   "+ms(0.5,2.0)+" ms   "+ms(0.5,2.0)+" ms","reply"],
+        [" 2  * * *","alert"],
+        [" 3  198.51.100.1    "+ms(12,17)+" ms  "+ms(12,17)+" ms  "+ms(12,17)+" ms","reply"],
+        [" 4  198.51.100.15   "+ms(17,22)+" ms  "+ms(17,22)+" ms  "+ms(17,22)+" ms","reply"]
+      ];
+    } else {
+      var found = sc.type === "ok";
+      lines = [
+        ["HTTP/1.0 "+(found?"200 OK":"404 File not found"),found?"reply":"alert"],
+        ["Server: SimpleHTTP/0.6 Python/3.12.0","neutral"],
+        ["Content-type: "+(found?"text/html":"text/html;charset=utf-8"),"neutral"],
+        ["","neutral"]
+      ];
+    }
+    return lines;
+  }
+  function showScenario() {
+    var s=scenarios[index];
+    document.getElementById("position").textContent="Commande "+(index+1)+" sur "+scenarios.length;
+    document.getElementById("scenario-title").textContent=(index+1)+". "+s.label;
+    document.getElementById("objective").textContent=s.objective;
+    document.getElementById("interpretation").textContent="La réponse apparaîtra ici après l'exécution simulée.";
+    document.getElementById("limite").textContent="Que pouvez-vous conclure de la commande, et que ne prouve-t-elle pas ?";
+    log.textContent="";
+    write("etudiant@but-tc-toulon:~$ "+s.cmd,"prompt");
+    run.disabled=false;
+    next.disabled=true;
+    next.textContent=index===scenarios.length-1?"Fin de la série":"Commande suivante";
+    document.getElementById("status").textContent="Prêt : cliquez sur « Jouer la commande ».";
+  }
+  function play() {
+    if (busy) return;
+    var local=++generation, sc=scenarios[index], lines=sceneLines(sc), i=0;
+    busy=true;run.disabled=true;next.disabled=true;
+    log.textContent="";
+    write("etudiant@but-tc-toulon:~$ "+sc.cmd,"prompt");
+    document.getElementById("status").textContent="Simulation en cours : affichage progressif des lignes…";
+    function tick() {
+      if (local!==generation) return;
+      if (i<lines.length) {
+        write(lines[i][0],lines[i][1]);i++;
+        window.setTimeout(tick,reducedMotion?0:between(155,340));
+      } else {
+        busy=false;run.disabled=false;
+        next.disabled=index>=scenarios.length-1;
+        document.getElementById("status").textContent="Simulation terminée : lisez le résumé et son interprétation.";
+        document.getElementById("interpretation").textContent=sc.good;
+        document.getElementById("limite").textContent="Limite : "+sc.limit;
+      }
+    }
+    window.setTimeout(tick,reducedMotion?0:200);
+  }
+  run.addEventListener("click",play);
+  next.addEventListener("click",function(){if(busy||index>=scenarios.length-1)return;index++;showScenario();play();});
+  reset.addEventListener("click",function(){generation++;busy=false;index=0;showScenario();});
+  showScenario();
+}());
+</script>
+</body>
+</html>
