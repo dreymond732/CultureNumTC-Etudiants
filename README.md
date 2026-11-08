@@ -8,7 +8,7 @@ Sur la page d’accueil **CultureNumTC**, ouvrez la rubrique « **Formation Code
 
 1. Créez un compte personnel sur https://github.com/signup si nécessaire, puis connectez-vous.
 2. Ouvrez le **dépôt étudiant public** https://github.com/dreymond732/CultureNumTC-Etudiants.
-3. Cliquez **Code → Codespaces → Create codespace on main**, ou suivez https://codespaces.new/dreymond732/CultureNumTC-Etudiants.
+3. Cliquez **Code → Codespaces → Create codespace on main**, ou suivez https://codespaces.new/dreymond732/CultureNumTC-Etudiants. **Les fichiers du dépôt de départ sont automatiquement copiés** dans votre Codespace : inutile de les télécharger et de les transférer un par un.
 4. Identifiez l’**Explorateur** de fichiers à gauche, l’**éditeur** au centre et le menu **Terminal → New Terminal**. Pour mettre l’interface en français : `Ctrl+Shift+P` puis **Configure Display Language → fr**.
 5. **Ouvrez d’abord `rapport-td1.md`**. Écrivez une phrase dans la rubrique « Avant de commencer », puis sauvegardez si nécessaire (`Ctrl+S` ou `Cmd+S`). Vous rédigerez **toutes vos réponses** dans ce même fichier au fil du TD1.
 6. Ouvrez `frise-histoire-web.html`, puis un terminal ; tapez `pwd` pour obtenir le dossier courant.
@@ -33,10 +33,20 @@ Sur la page d’accueil **CultureNumTC**, ouvrez la rubrique « **Formation Code
 
 **Public :** les ressources du portail CultureNumTC ; ce dépôt étudiant (README, frise, données d’exemple, modèles vierges) ; les informations de votre profil GitHub visibles selon vos réglages ; les fichiers que vous publiez dans un dépôt GitHub public.
 
-**Non public par défaut :** vos modifications dans votre Codespace personnel, dont votre `rapport-td1.md`, tant que vous ne les publiez pas sur GitHub. Le formulaire de remise sur le NAS est distinct. **Ne publiez pas votre rapport dans un dépôt public.**
+**Non public par défaut :** vos modifications dans votre Codespace personnel, dont votre `rapport-td1.md`, tant que vous ne les publiez pas sur GitHub. Le formulaire de dépôt des travaux est différent des ressources publiques. **Ne publiez pas votre rapport dans un dépôt public.**
 
 Ne renseignez ni nom, prénom, numéro étudiant, groupe, téléphone, mot de passe, ni jeton dans les fichiers d’exercice ou les demandes à Copilot. Si Codespaces demande un paiement, ne payez pas : prévenez l’enseignant.
 
+## Où sont mes fichiers et comment conserver mon travail ?
+
+Au départ, le contenu du dépôt GitHub public est copié dans votre espace personnel, généralement dans `/workspaces/CultureNumTC-Etudiants/`. Les fichiers que vous modifiez dans ce dossier ne sont **pas publiés automatiquement** sur GitHub.
+
+**En arrêtant le Codespace, vous ne perdez pas les fichiers enregistrés dans ce dossier.** Pour la séance suivante, reprenez le **même Codespace**, depuis https://github.com/codespaces. Les modifications du dépôt public réalisées après votre création n'arrivent toutefois pas automatiquement dans un Codespace déjà existant : préservez vos productions avant toute mise à jour.
+
+Un Codespace arrêté depuis longtemps peut être supprimé automatiquement (par défaut après 30 jours d'inactivité, selon les réglages GitHub). **Téléchargez des copies** de vos documents de travail pour ne pas les perdre.
+
 ## En fin de TD
 
-Dans l’Explorateur Codespaces, clic droit sur `rapport-td1.md` → **Download / Télécharger** pour conserver une copie sur votre appareil. Puis arrêtez votre Codespace depuis GitHub pour préserver votre quota.
+Dans l’Explorateur Codespaces, clic droit sur `rapport-td1.md` → **Download / Télécharger** pour conserver une copie sur votre appareil.
+
+**Pour arrêter votre Codespace :** ouvrez https://github.com/codespaces, puis **… → Stop codespace / Arrêter le codespace** à droite de votre machine. **Fermer seulement l'onglet ne l'arrête pas.**
