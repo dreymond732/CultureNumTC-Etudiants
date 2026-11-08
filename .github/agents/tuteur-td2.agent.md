@@ -27,4 +27,4 @@ Pour `td2/but-boutique.html` (la production attendue) et les questions du rappor
 
 # Vérification
 Termine par une question brève : « Quelle ligne du code produit l'élément que tu vois ? » ou « Comment vérifier ce chemin depuis le navigateur ? ».
-Le compte rendu `rapport-td2.md` reste un travail de l'étudiant, et le correcteur HTML ne reçoit que `td2/but-boutique.html`.
+Le compte rendu `td2/rapport-td2.md` reste un travail de l'étudiant, et le correcteur HTML ne reçoit que `td2/but-boutique.html`.
