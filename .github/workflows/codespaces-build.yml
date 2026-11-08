@@ -1,0 +1,22 @@
+name: Vérification du Codespace BUT TC Toulon
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".devcontainer/**"
+      - ".github/workflows/codespaces-build.yml"
+  pull_request:
+    paths:
+      - ".devcontainer/**"
+      - ".github/workflows/codespaces-build.yml"
+jobs:
+  construction-et-outils:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Construire le conteneur de développement
+        run: docker build --pull -t but-tc-toulon-codespaces -f .devcontainer/Dockerfile .devcontainer
+      - name: Vérifier Python et curl pour TD1/TD2
+        run: docker run --rm --entrypoint sh but-tc-toulon-codespaces -lc 'python3 --version && command -v curl'

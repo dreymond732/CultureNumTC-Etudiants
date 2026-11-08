@@ -1,4 +1,4 @@
-# TD1 — Mon appareil, Internet et le Web
+# BUT TC Toulon — TD1 : mon appareil, Internet et le Web
 
 Bienvenue dans votre **Codespace personnel**, un ordinateur Linux distant ouvert dans le navigateur. Il contient un éditeur de texte, des fichiers, un terminal et une aide IA facultative (Copilot).
 
@@ -6,10 +6,10 @@ Bienvenue dans votre **Codespace personnel**, un ordinateur Linux distant ouvert
 
 Sur la page d’accueil **CultureNumTC**, ouvrez la rubrique « **Formation Codespaces** ». Elle explique avec un dessin votre appareil, Internet, votre compte GitHub et votre machine Codespaces.
 
-1. Créez un compte personnel sur https://github.com/signup si nécessaire, puis connectez-vous.
+1. Créez un compte personnel sur https://github.com/signup si nécessaire ; choisissez **Continuer avec Google** si cette possibilité vous est proposée, ou utilisez votre adresse courriel. Vous pouvez aussi simplement vous connecter à un compte existant.
 2. Ouvrez le **dépôt étudiant public** https://github.com/dreymond732/CultureNumTC-Etudiants.
-3. Cliquez **Code → Codespaces → Create codespace on main**, ou suivez https://codespaces.new/dreymond732/CultureNumTC-Etudiants. **Les fichiers du dépôt de départ sont automatiquement copiés** dans votre Codespace : inutile de les télécharger et de les transférer un par un.
-4. Identifiez l’**Explorateur** de fichiers à gauche, l’**éditeur** au centre et le menu **Terminal → New Terminal**. Pour mettre l’interface en français : `Ctrl+Shift+P` puis **Configure Display Language → fr**.
+3. Cliquez **Code → Codespaces → Create codespace on main**, ou suivez https://codespaces.new/dreymond732/CultureNumTC-Etudiants. **Les fichiers du dépôt de départ sont automatiquement copiés** dans votre Codespace : inutile de les télécharger et de les transférer un par un. La première mise en place peut prendre **plusieurs minutes**. Si GitHub ou VS Code demande de **faire confiance au contenu**, vérifiez qu’il s’agit du dépôt officiel **dreymond732/CultureNumTC-Etudiants** (BUT TC Toulon), puis choisissez **Oui / Trust**.
+4. Si l’écran affiche **Recovery Mode**, il s’agit d’un problème de préparation technique de l’environnement. Prévenez l’enseignant, sans essayer de commandes système aléatoires. Identifiez ensuite l’**Explorateur** de fichiers à gauche, l’**éditeur** au centre et le menu **Terminal → New Terminal**. Pour mettre l’interface en français : `Ctrl+Shift+P` puis **Configure Display Language → fr**.
 5. **Ouvrez d’abord `rapport-td1.md`**. Écrivez une phrase dans la rubrique « Avant de commencer », puis sauvegardez si nécessaire (`Ctrl+S` ou `Cmd+S`). Vous rédigerez **toutes vos réponses** dans ce même fichier au fil du TD1.
 6. Ouvrez `frise-histoire-web.html`, puis un terminal ; tapez `pwd` pour obtenir le dossier courant.
 7. Si vous avez accès à Copilot, repérez le profil **Tuteur TD1**.
@@ -50,3 +50,6 @@ Un Codespace arrêté depuis longtemps peut être supprimé automatiquement (par
 Dans l’Explorateur Codespaces, clic droit sur `rapport-td1.md` → **Download / Télécharger** pour conserver une copie sur votre appareil.
 
 **Pour arrêter votre Codespace :** ouvrez https://github.com/codespaces, puis **… → Stop codespace / Arrêter le codespace** à droite de votre machine. **Fermer seulement l'onglet ne l'arrête pas.**
+
+## Que faire si la création affiche « Recovery Mode » ?
+La configuration de départ a déjà rencontré un problème de signature du dépôt Yarn lors d’une installation supplémentaire inutile. Si cela se reproduit, conservez le journal d’erreur et informez l’enseignant. La réparation documentée consiste à corriger `.devcontainer/Dockerfile`, puis à utiliser la palette de commandes **Codespaces: Rebuild Container**. Pour une première création sans travail personnel, vous pouvez aussi supprimer le Codespace défaillant et le recréer **après publication du correctif**. Ne supprimez jamais un Codespace contenant vos réponses sans les sauvegarder.
