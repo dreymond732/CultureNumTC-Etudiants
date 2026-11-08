@@ -16,10 +16,12 @@ Compléter avec mes propres mots la colonne de droite ; le premier exemple est f
 | Windows / macOS | Système d'exploitation | Faire fonctionner l'appareil et lancer les applications. |
 | Firefox / Chrome | Navigateur | |
 | Google Search | Moteur de recherche | |
-| GitHub Codespaces | Service donnant accès à une machine distante | |
+| GitHub Codespaces | Service donnant accès à une machine distante | Permet de créer, modifier et tester des fichiers de code. Leur publication sur GitHub ou via un port Web est une action distincte. |
 | frise-histoire-web.html | Fichier | |
 | Internet | Réseau de réseaux | |
 | Serveur Web | Logiciel qui répond aux demandes de pages | |
+
+**Attention — public ou privé ?** Votre Codespace est personnel. Le dépôt de départ de BUT TC Toulon appartient à l’enseignant et est public. Une page rendue accessible par un **port Web public** ou un fichier publié sur un **dépôt GitHub public** peut être consulté par d’autres. **Nous n’utilisons pas les outils Git pour ces TD.** Ne publiez pas vos rapports ni de données personnelles.
 
 ### Mon usage de Wix
 1. Je vois directement les fichiers HTML de mon CV (oui/non) :

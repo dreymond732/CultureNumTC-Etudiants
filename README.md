@@ -9,6 +9,7 @@ Sur la page d’accueil **CultureNumTC**, ouvrez la rubrique « **Formation Code
 1. Créez un compte personnel sur https://github.com/signup si nécessaire ; choisissez **Continuer avec Google** si cette possibilité vous est proposée, ou utilisez votre adresse courriel. Vous pouvez aussi simplement vous connecter à un compte existant.
 2. Ouvrez le **dépôt étudiant public** https://github.com/dreymond732/CultureNumTC-Etudiants.
 3. Cliquez **Code → Codespaces → Create codespace on main**, ou suivez https://codespaces.new/dreymond732/CultureNumTC-Etudiants. **Les fichiers du dépôt de départ sont automatiquement copiés** dans votre Codespace : inutile de les télécharger et de les transférer un par un. La première mise en place peut prendre **plusieurs minutes**. Si GitHub ou VS Code demande de **faire confiance au contenu**, vérifiez qu’il s’agit du dépôt officiel **dreymond732/CultureNumTC-Etudiants** (BUT TC Toulon), puis choisissez **Oui / Trust**.
+   Une fois la machine créée, GitHub lui donne un nom aléatoire. Vous pouvez, facultativement, le remplacer sur https://github.com/codespaces avec **… → Rename / Renommer** par **BUT TC Toulon — Culture numérique**. Le nom technique permanent ne change pas.
 4. Si l’écran affiche **Recovery Mode**, il s’agit d’un problème de préparation technique de l’environnement. Prévenez l’enseignant, sans essayer de commandes système aléatoires. Identifiez ensuite l’**Explorateur** de fichiers à gauche, l’**éditeur** au centre et le menu **Terminal → New Terminal**. Pour mettre l’interface en français : `Ctrl+Shift+P` puis **Configure Display Language → fr**.
 5. **Ouvrez d’abord `rapport-td1.md`**. Écrivez une phrase dans la rubrique « Avant de commencer », puis sauvegardez si nécessaire (`Ctrl+S` ou `Cmd+S`). Vous rédigerez **toutes vos réponses** dans ce même fichier au fil du TD1.
 6. Ouvrez `frise-histoire-web.html`, puis un terminal ; tapez `pwd` pour obtenir le dossier courant.
@@ -44,6 +45,16 @@ Au départ, le contenu du dépôt GitHub public est copié dans votre espace per
 **En arrêtant le Codespace, vous ne perdez pas les fichiers enregistrés dans ce dossier.** Pour la séance suivante, reprenez le **même Codespace**, depuis https://github.com/codespaces. Les modifications du dépôt public réalisées après votre création n'arrivent toutefois pas automatiquement dans un Codespace déjà existant : préservez vos productions avant toute mise à jour.
 
 Un Codespace arrêté depuis longtemps peut être supprimé automatiquement (par défaut après 30 jours d'inactivité, selon les réglages GitHub). **Téléchargez des copies** de vos documents de travail pour ne pas les perdre.
+
+## Pourquoi Git apparaît-il dans Codespaces ?
+
+**Git** est un logiciel libre de gestion des versions créé par **Linus Torvalds en 2005** pour le développement du noyau Linux. Il permet de retrouver l'historique des modifications d'un projet dans des *commits* et de travailler à plusieurs. **GitHub** est une plateforme d'hébergement de dépôts Git, **rachetée par Microsoft en 2018**. Ce n'est pas Git qui a été racheté.
+
+Références : [Une rapide histoire de Git](https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Une-rapide-histoire-de-Git) · [Microsoft annonce la finalisation du rachat de GitHub](https://blogs.microsoft.com/blog/2018/10/26/microsoft-completes-github-acquisition/).
+
+**Nous n'utilisons pas les outils Git pour ces TD.** Le dépôt `CultureNumTC-Etudiants` appartient à l'enseignant et est **public** : ce n'est pas votre dépôt personnel. Vous pouvez voir dans Codespaces l'icône de contrôle de code source, des boutons *Commit*, *Sync* ou *Push* ; **ne les utilisez pas pour vos travaux**. GitHub pourrait créer un **fork public** du dépôt, qui exposerait vos réponses.
+
+**Un commit local n'est pas une sauvegarde à long terme :** il est conservé dans le Codespace seulement et disparaîtrait avec celui-ci. Plus tard, nous pourrons découvrir la création d'un **dépôt GitHub personnel privé** pour enregistrer durablement les modifications et leur historique. Pour l'instant, enregistrez dans Codespaces et **téléchargez une copie des fichiers importants**.
 
 ## En fin de TD
 
