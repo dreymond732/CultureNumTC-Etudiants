@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Une brève histoire du Web — BUT TC Toulon</title>
+  <!-- CONTRÔLE TD4 : ajoutez ici une balise meta name="description" sans donnée personnelle. -->
+  <style id="css-helper-style-target"></style>
+  <style id="student-styles">
+    /* Styles de départ. Conservez-les : complétez les quatre blocs plus bas. */
+    body {font:1rem/1.55 system-ui,sans-serif;margin:0;padding:1rem;background:#f2f5f9;color:#192b43}
+    .container {max-width:900px;background:white;margin:auto;padding:1.5rem;border-radius:12px}
+    header {text-align:center;padding:.5rem 0}
+    .frise-chronologique {position:relative;margin:1rem 0;padding:1rem 0 1rem 1.4rem;border-left:4px solid #dbeafe}
+    .frise-item {position:relative;margin:1rem 0;padding:1rem;border:1px solid #dbe2ee;border-radius:9px;background:#fafcff}
+    .frise-item::before {content:"";position:absolute;top:1.35rem;left:-1.9rem;width:.75rem;height:.75rem;background:#2563eb;border-radius:50%}
+    .contenu h2 {margin-top:0}
+    .contenu p {margin:.4rem 0 0}
+    a {color:#155e9a}
+    .aide-selecteur {margin:1rem auto;background:#eff6ff;border:1px solid #b6d1ec;border-radius:9px;padding:1rem}
+    .aide-selecteur input {font:inherit;padding:.45rem;width:min(100%,360px)}
+    .aide-selecteur .resultat {font-weight:600;min-height:1.5rem}
+    .selector-match {outline:3px solid #c2410c!important;outline-offset:3px!important}
+    /* =============================================================
+       ÉPREUVE : écrivez au moins deux déclarations CSS dans chacun
+       des blocs suivants, sans supprimer les styles de départ.
+       Exemple de syntaxe : selecteur { propriete: valeur; }
+       ============================================================= */
+    h1 {
+      /* À compléter : deux propriétés pour le titre principal. */
+    }
+    .frise-item {
+      /* À compléter : deux propriétés pour les entrées de la frise. */
+    }
+    #creation-web {
+      /* À compléter : deux propriétés pour l'événement de 1989-1991. */
+    }
+    a:hover {
+      /* À compléter : deux propriétés pour le survol d'un lien. */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Une brève histoire du Web</h1>
+      <p>Comment le Web s'est-il développé ?</p>
+    </header>
+    <main>
+      <section class="frise-chronologique" aria-label="Quelques étapes de l'histoire du Web">
+        <article class="frise-item" id="creation-web">
+          <div class="contenu">
+            <h2>1989–1991 — La naissance du Web</h2>
+            <p>Tim Berners-Lee, au CERN, propose le World Wide Web. Les liens, les URL, HTTP et HTML permettent de relier des documents accessibles en réseau.</p>
+          </div>
+        </article>
+        <article class="frise-item">
+          <div class="contenu">
+            <h2>1993 — Le navigateur Mosaic</h2>
+            <p>Mosaic contribue à diffuser l'utilisation de navigateurs graphiques.</p>
+          </div>
+        </article>
+        <article class="frise-item">
+          <div class="contenu">
+            <h2>1995 — JavaScript</h2>
+            <p>JavaScript est créé chez Netscape et permet d'ajouter des interactions aux pages Web.</p>
+          </div>
+        </article>
+        <article class="frise-item">
+          <div class="contenu">
+            <h2>1996 — CSS</h2>
+            <p>Les feuilles de style CSS permettent de séparer la présentation visuelle de la structure HTML.</p>
+          </div>
+        </article>
+        <article class="frise-item">
+          <div class="contenu">
+            <h2>Années 2000 — Participation et CMS</h2>
+            <p>Wikipédia, les blogs et les CMS facilitent la publication et la contribution sur le Web.</p>
+          </div>
+        </article>
+      </section>
+      <!-- CONTRÔLE TD4 : ajoutez sous la frise une section contenant :
+           1) une image avec un alt pertinent (asset : images/mosaic.svg) ;
+           2) un tableau comparatif (au moins 3 lignes, 2 colonnes) ;
+           3) un lien vers une source extérieure pertinente, sans donnée personnelle. -->
+    </main>
+    <aside class="aide-selecteur" aria-label="Aide pour retrouver un sélecteur CSS">
+      <h2>Aide-sélecteur CSS — outil déjà fourni</h2>
+      <p>Essayez <code>h1</code>, <code>.frise-item</code>, <code>#creation-web</code> ou <code>a:hover</code>. Les éléments correspondants sont entourés : cela permet de voir ce que cible le sélecteur, pas de vérifier toute la qualité du CSS.</p>
+      <label for="css-helper-input">Sélecteur à tester :</label>
+      <input id="css-helper-input" placeholder="Exemple : .frise-item" autocomplete="off">
+      <p class="resultat" id="css-helper-result" role="status" aria-live="polite">Saisissez un sélecteur.</p>
+    </aside>
+  </div>
+  <script>
+    /* Fonctionnement du panneau d'aide fourni. Ne pas modifier pendant le contrôle. */
+    const input = document.getElementById('css-helper-input');
+    const result = document.getElementById('css-helper-result');
+    let selected = [];
+    input.addEventListener('input', () => {
+      selected.forEach(element => element.classList.remove('selector-match'));
+      selected = [];
+      const selector = input.value.trim();
+      if (!selector) { result.textContent = 'Saisissez un sélecteur.'; return; }
+      try {
+        selected = [...document.querySelectorAll(selector)];
+        selected.forEach(element => element.classList.add('selector-match'));
+        result.textContent = selected.length + ' élément(s) correspond(ent) au sélecteur.';
+      } catch (error) {
+        result.textContent = 'Sélecteur non reconnu : vérifiez sa syntaxe.';
+      }
+    });
+  </script>
+</body>
+</html>

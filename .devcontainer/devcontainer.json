@@ -4,11 +4,16 @@
     "dockerfile": "Dockerfile"
   },
   "forwardPorts": [
-    8000
+    8000,
+    8001
   ],
   "portsAttributes": {
     "8000": {
-      "label": "BUT TC Toulon — serveur privé TD1/TD2",
+      "label": "BUT TC Toulon — serveur A TD4 et TD1/TD2",
+      "onAutoForward": "notify"
+    },
+    "8001": {
+      "label": "BUT TC Toulon — serveur B TD4",
       "onAutoForward": "notify"
     }
   },

@@ -1,37 +1,49 @@
 # BUT TC Toulon — Culture numérique S5
 
-Bienvenue dans l’espace de travail des **étudiants du BUT Techniques de commercialisation de Toulon**. GitHub a copié automatiquement dans votre Codespace les documents de départ du cours ; vous pouvez les modifier dans votre propre espace de travail.
+Bienvenue dans le Codespace du cours de **BUT Techniques de commercialisation, Toulon**. GitHub a copié automatiquement ici les fichiers de départ des TD. Vous pouvez les modifier dans votre espace personnel ; ils ne sont pas automatiquement publiés.
 
-## Retrouvez vos exercices
+## Où trouver les activités ?
 
-- **TD1 :** ouvrez [le mode d’emploi du TD1](td1/README.md), puis **`td1/rapport-td1.md`** pour rédiger vos réponses au fil de la séance. Les fichiers HTML, les données et le terminal réseau simulé sont rangés sous `td1/`.
-- **TD2 :** ouvrez [le mode d’emploi du TD2](td2/README.md), puis **`td2/rapport-td2.md`**. Les pages HTML de BUT-Boutique et les images sont dans `td2/`.
+- **TD1** — [Mode d'emploi](td1/README.md), rapport `td1/rapport-td1.md`, fichiers d'exemples et terminal réseau simulé.
+- **TD2** — [Mode d'emploi](td2/README.md), rapport `td2/rapport-td2.md`, pages HTML de BUT-Boutique.
+- **TD4** — **Évaluation intermédiaire sur 20 points** : [Consignes pratiques](td4/README.md), rapport `td4/rapport-td4.md`, frise `td4/site-a/histoire-web.html` à modifier et page `td4/site-b/index.html` à laisser intacte.
 
-1. Créez un compte personnel sur https://github.com/signup si nécessaire ; choisissez **Continuer avec Google** si cette possibilité vous est proposée, ou utilisez votre adresse courriel. Vous pouvez aussi simplement vous connecter à un compte existant.
-2. Ouvrez le **dépôt étudiant public** https://github.com/dreymond732/CultureNumTC-Etudiants.
-3. Cliquez **Code → Codespaces → Create codespace on main**, ou suivez https://codespaces.new/dreymond732/CultureNumTC-Etudiants. **Les fichiers du dépôt de départ sont automatiquement copiés** dans votre Codespace : inutile de les télécharger et de les transférer un par un. La première mise en place peut prendre **plusieurs minutes**. Si GitHub ou VS Code demande de **faire confiance au contenu**, vérifiez qu’il s’agit du dépôt officiel **dreymond732/CultureNumTC-Etudiants** (BUT TC Toulon), puis choisissez **Oui / Trust**.
-4. Si l’écran affiche **Recovery Mode**, il s’agit d’un problème de préparation technique de l’environnement. Prévenez l’enseignant, sans essayer de commandes système aléatoires. Identifiez ensuite l’**Explorateur** de fichiers à gauche, l’**éditeur** au centre et le menu **Terminal → New Terminal**. Pour mettre l’interface en français : `Ctrl+Shift+P` puis **Configure Display Language → fr**.
-5. **Ouvrez d’abord `rapport-td1.md`**. Écrivez une phrase dans la rubrique « Avant de commencer », puis sauvegardez si nécessaire (`Ctrl+S` ou `Cmd+S`). Vous rédigerez **toutes vos réponses** dans ce même fichier au fil du TD1.
-6. Ouvrez `frise-histoire-web.html`, puis un terminal ; tapez `pwd` pour obtenir le dossier courant.
-7. **N’utilisez pas `/create-agent`** : le tuteur du cours est déjà dans `.github/agents/tuteur-td1.agent.md`. Le volet « Créer avec des assistants » est un conseil générique de VS Code. Si vous souhaitez le masquer : **Affichage → Apparence → Barre latérale secondaire** (Windows/Linux : `Ctrl+Alt+B`). Pour accéder au tuteur plus tard, ouvrez **Copilot Chat**, puis choisissez **Tuteur TD1** dans le sélecteur d’agents en bas de la conversation, si Copilot est accessible avec votre compte.
-8. **Langue et clavier :** `Configure Display Language → fr` change l’interface de l’éditeur ; les messages du terminal Linux peuvent rester en anglais. Le clavier dépend de votre appareil et de votre navigateur, pas d’un réglage clavier à imposer sur la machine distante. Si AZERTY est interprété comme QWERTY, contrôlez d’abord la disposition de saisie locale, puis essayez les caractères dans l’éditeur et le terminal.
+Les énoncés complets, le barème et les informations de remise figurent sur le **portail pédagogique CultureNumTC**.
 
-## Une page Web privée dans votre navigateur
+## Première ouverture de Codespaces
 
-Au TD1, vous afficherez le terminal réseau simulé à l’aide d’un petit serveur Web. Depuis le terminal Codespaces, à la **racine du projet** (`pwd` et `ls` permettent de vérifier), saisissez :
+Vous pouvez vous connecter à GitHub avec votre compte existant (ou vous inscrire, notamment avec Google si proposé). Ouvrez le dépôt public `dreymond732/CultureNumTC-Etudiants`, choisissez **Code → Codespaces → Create codespace on main** ou utilisez https://codespaces.new/dreymond732/CultureNumTC-Etudiants. La première préparation peut prendre plusieurs minutes. Si la plateforme demande de faire confiance au dépôt, vérifiez son nom et validez **Oui / Trust**.
+
+Dans Codespaces, ouvrez les dossiers à gauche (Explorateur), les fichiers au centre (éditeur) et le terminal avec **Terminal → New Terminal**. Le volet « Créer avec des assistants » est facultatif : les profils **Tuteur TD1 et TD2** existent déjà, donc **ne lancez pas `/create-agent`**. Vous pourrez mettre l'éditeur en français avec `Ctrl+Shift+P` → **Configure Display Language** → `fr`. Le clavier de votre appareil et les messages en anglais du terminal Linux sont deux sujets distincts.
+
+## Quel dossier est servi par le navigateur ?
+
+Au TD1, vous avez affiché le terminal réseau simulé avec un serveur privé :
 
 ```bash
 python3 -m http.server 8000 --bind 0.0.0.0
 ```
 
-Dans l’onglet **Ports**, vérifiez que `8000` est **Private**, puis ouvrez-le dans le navigateur. Parcourez le dossier `td1` jusqu’au fichier `terminal-reseau.html`. **Cette page simule des commandes : elle ne mesure pas le réseau.** Pour arrêter le serveur, revenez au terminal et utilisez `Ctrl+C`.
+Au **TD4**, vous exécuterez deux instances simultanées depuis **deux terminaux et deux dossiers différents** :
 
-## Sauvegarder sans publier vos réponses
+```bash
+cd td4/site-a
+python3 -m http.server 8000 --bind 0.0.0.0
+```
 
-**Nous n’utilisons pas les outils Git pour ces premiers TD.** Le dépôt de départ GitHub est public et appartient à l’enseignant. Ne faites pas de `push` ou de `fork` public avec vos réponses. La modification d’un fichier dans votre Codespace n’est pas automatiquement publiée.
+Dans le second terminal Codespaces, depuis la racine du projet :
 
-Pour retrouver les fichiers enregistrés, reprenez le **même Codespace** depuis https://github.com/codespaces. Il peut toutefois être supprimé après une période d’inactivité : **téléchargez une copie locale** de vos travaux importants. Pour arrêter votre Codespace : `… → Stop codespace` dans cette page.
+```bash
+cd td4/site-b
+python3 -m http.server 8001 --bind 0.0.0.0
+```
 
-Copilot est facultatif. Les profils **Tuteur TD1** et **Tuteur TD2** sont déjà disponibles dans `.github/agents/` si votre compte autorise leur utilisation : inutile de lancer `/create-agent`.
+Dans l'onglet **Ports**, les deux ports 8000 et 8001 doivent rester **Private**. Pour arrêter chaque serveur, revenez à son terminal et tapez `Ctrl+C`. Les étapes détaillées et les commandes GET/POST figurent dans le **TD4** du portail.
 
-**Vie privée :** n’inscrivez pas vos nom, prénom, numéro étudiant, groupe, téléphone, mot de passe ou jeton dans ces fichiers ou dans Copilot.
+## Conserver vos réponses sans Git
+
+**Nous n'utilisons pas les outils Git pour ces premiers TD.** Le dépôt de départ est public et appartient à l'enseignant. Ne faites pas de *push* ou de *fork* public avec vos réponses. Les fichiers modifiés dans votre Codespace ne sont pas automatiquement publiés sur GitHub.
+
+Pour retrouver votre travail, reprenez le **même Codespace** depuis https://github.com/codespaces. Celui-ci peut être supprimé après une période d'inactivité : téléchargez une copie locale de vos rapports et pages importantes. Pour arrêter votre Codespace : **… → Stop codespace** sur cette page.
+
+**Vie privée :** ne mettez aucun nom, prénom, numéro étudiant, groupe, mot de passe ou jeton dans les fichiers de travail ni dans Copilot. Pendant l'évaluation intermédiaire du TD4, aucune assistance IA n'est autorisée.
