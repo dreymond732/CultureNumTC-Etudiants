@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "760px",
+      "wideSize": "1040px"
+    },
+    "color": {
+      "palette": [
+        {
+          "slug": "bleu-nuit",
+          "name": "Bleu nuit",
+          "color": "#193653"
+        },
+        {
+          "slug": "turquoise",
+          "name": "Turquoise",
+          "color": "#147d8b"
+        },
+        {
+          "slug": "sable",
+          "name": "Sable",
+          "color": "#f4eee3"
+        },
+        {
+          "slug": "papier",
+          "name": "Papier",
+          "color": "#ffffff"
+        }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "slug": "systeme",
+          "name": "Police système",
+          "fontFamily": "system-ui, -apple-system, sans-serif"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#f4eee3",
+      "text": "#193653"
+    },
+    "typography": {
+      "fontFamily": "var:preset|font-family|systeme",
+      "fontSize": "1.05rem",
+      "lineHeight": "1.6"
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "#147d8b"
+        }
+      },
+      "button": {
+        "color": {
+          "background": "#193653",
+          "text": "#ffffff"
+        },
+        "border": {
+          "radius": "7px"
+        }
+      }
+    }
+  }
+}
