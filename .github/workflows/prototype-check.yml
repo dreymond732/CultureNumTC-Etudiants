@@ -1,0 +1,45 @@
+name: Prototype public WordPress et SQLite
+on:
+  pull_request:
+    paths:
+      - "prototypes/**"
+      - ".github/workflows/prototype-check.yml"
+  workflow_dispatch:
+jobs:
+  verify-public-prototype:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Blueprint et thème parsables
+        run: |
+          python -m json.tool prototypes/but-boutique-wp/blueprint.json > /dev/null
+          python -m json.tool prototypes/but-boutique-wp/theme-but-boutique/theme.json > /dev/null
+          test -f prototypes/but-boutique-wp/theme-but-boutique/style.css
+          test -f prototypes/but-boutique-wp/theme-but-boutique/templates/index.html
+      - name: Vérifier le lien public RAW du Blueprint et les autorisations CORS
+        run: |
+          curl -fLsS --retry 3 --max-time 40 \
+            -D /tmp/but-headers -o /tmp/but-blueprint.json \
+            'https://raw.githubusercontent.com/dreymond732/CultureNumTC-Etudiants/prototype/td5-playground-td6-sqlite/prototypes/but-boutique-wp/blueprint.json'
+          cmp /tmp/but-blueprint.json prototypes/but-boutique-wp/blueprint.json
+          grep -iq 'access-control-allow-origin: \*' /tmp/but-headers
+      - name: Vérifier la syntaxe PHP du Blueprint
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          config=json.loads(Path('prototypes/but-boutique-wp/blueprint.json').read_text())
+          php=next(x['code'] for x in config['steps'] if x['step']=='runPHP')
+          Path('/tmp/wordpress-setup.php').write_text(php,encoding='utf-8')
+          PY
+          if command -v php >/dev/null 2>&1; then php -l /tmp/wordpress-setup.php; else echo 'PHP CLI absent, test syntaxique ignoré'; fi
+      - name: Générer la base métier SQLite sans installer de dépendances
+        run: |
+          python prototypes/sqlite-boutique/preparer.py --output /tmp/but-prototype.sqlite
+          python prototypes/sqlite-boutique/explorer.py clients --db /tmp/but-prototype.sqlite
+          python -m sqlite3 /tmp/but-prototype.sqlite 'PRAGMA integrity_check;'
