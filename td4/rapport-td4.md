@@ -34,6 +34,22 @@
 - Pourquoi le serveur B ne trouve-t-il pas `histoire-web.html` alors que le serveur A la trouve ?
 - Si je modifie le fichier sous `site-a/`, quelle page change à l'actualisation ? Pourquoi ?
 
+### Journal A — port 8000
+
+Copiez ici **les lignes réelles affichées par le terminal A** pour la requête GET trouvée et pour la requête POST. Ne réécrivez pas les réponses de mémoire ; le correcteur cherchera les méthodes, chemins et codes HTTP dans ces lignes.
+
+```text
+[Collez les lignes GET et POST du terminal A ici, puis effacez cette consigne.]
+```
+
+### Journal B — port 8001
+
+Copiez ici **les lignes réelles du terminal B** correspondant à la page `index.html` trouvée et à la page `histoire-web.html` absente.
+
+```text
+[Collez les deux lignes GET du terminal B ici, puis effacez cette consigne.]
+```
+
 ## 3. HTTP : GET et POST (20 min)
 - La méthode utilisée par le navigateur pour demander `histoire-web.html` :
 - Code de la requête GET pour un fichier présent :
@@ -50,4 +66,4 @@
 - J'ai arrêté les deux serveurs avec `Ctrl+C` :
 - J'ai téléchargé une copie locale de `td4/site-a/histoire-web.html` et de ce rapport :
 
-**La remise de ces deux fichiers sera précisée par l'enseignant.** Ne publiez pas ces documents sur le dépôt GitHub public.
+**À déposer dans le correcteur TD4 :** votre page `histoire-web.html` **et** ce rapport `rapport-td4.md`. Le formulaire demande les deux fichiers. Le contrôle automatique examine la structure HTML/CSS et la cohérence technique des journaux recopiés ; deux points de raisonnement restent soumis à une relecture enseignante. **Le score automatique n'est pas une note définitive.** En mode démonstration, le résultat n'est pas enregistré : conservez vos deux fichiers. Ne publiez pas ces documents sur le dépôt GitHub public.
