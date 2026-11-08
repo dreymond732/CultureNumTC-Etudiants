@@ -20,7 +20,9 @@
       ],
       "settings": {
         "files.autoSave": "off",
-        "editor.formatOnSave": false
+        "editor.formatOnSave": false,
+        "workbench.secondarySideBar.defaultVisibility": "hidden",
+        "github.copilot.chat.localeOverride": "fr"
       }
     }
   },
