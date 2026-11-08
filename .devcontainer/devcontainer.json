@@ -1,5 +1,5 @@
 {
-  "name": "CultureNumTC — TD1",
+  "name": "BUT TC Toulon — Atelier Web",
   "build": {
     "dockerfile": "Dockerfile"
   },
@@ -8,7 +8,7 @@
   ],
   "portsAttributes": {
     "8000": {
-      "label": "TD1 — HTTP",
+      "label": "BUT TC Toulon — serveur Web TD2",
       "onAutoForward": "notify"
     }
   },
@@ -24,5 +24,5 @@
       }
     }
   },
-  "postCreateCommand": "python3 --version && command -v curl"
+  "postCreateCommand": "python3 --version"
 }

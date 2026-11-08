@@ -1,2 +1,3 @@
 FROM mcr.microsoft.com/devcontainers/python:1-3.12-bookworm
-RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
+# Le cours utilise l'image de développement Python directement.
+# Aucun ajout de paquet système à la création du Codespace.
