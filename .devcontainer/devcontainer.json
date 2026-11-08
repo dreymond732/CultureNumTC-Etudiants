@@ -8,7 +8,7 @@
   ],
   "portsAttributes": {
     "8000": {
-      "label": "BUT TC Toulon — serveur Web TD2",
+      "label": "BUT TC Toulon — serveur privé TD1/TD2",
       "onAutoForward": "notify"
     }
   },
