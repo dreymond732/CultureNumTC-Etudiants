@@ -1,0 +1,7 @@
+# Bases SQLite générées dans les Codespaces des étudiants : ne pas publier.
+td6/*.sqlite
+td6/*.sqlite3
+td6/*.db
+td6/*.sqlite-wal
+td6/*.sqlite-shm
+__pycache__/
