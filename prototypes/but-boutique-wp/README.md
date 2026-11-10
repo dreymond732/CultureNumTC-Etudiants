@@ -8,7 +8,7 @@ Vous pouvez ouvrir ce Blueprint avec :
 [WordPress Playground — BUT-Boutique](https://playground.wordpress.net/?blueprint-url=https%3A%2F%2Fraw.githubusercontent.com%2Fdreymond732%2FCultureNumTC-Etudiants%2Fprototype%2Ftd5-playground-td6-sqlite%2Fprototypes%2Fbut-boutique-wp%2Fblueprint.json).
 
 Ou ouvrez https://playground.wordpress.net/ puis **Open New → Blueprint URL**, et indiquez ce chemin public :
-`https://raw.githubusercontent.com/dreymond732/CultureNumTC-Etudiants/prototype/td5-playground-td6-sqlite/prototypes/but-boutique-wp/blueprint.json`.
+`https://raw.githubusercontent.com/dreymond732/CultureNumTC-Etudiants/main/prototypes/but-boutique-wp/blueprint.json`.
 
 Le Blueprint installe automatiquement le thème BUT-Boutique depuis la **branche publique de prototype sur GitHub**, puis crée quatre pages de contenu dans la base WordPress.
 

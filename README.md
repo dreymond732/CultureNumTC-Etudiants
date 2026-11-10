@@ -6,6 +6,8 @@ Bienvenue dans le Codespace du cours de **BUT Techniques de commercialisation, T
 
 - **TD1** — [Mode d'emploi](td1/README.md), rapport `td1/rapport-td1.md`, fichiers d'exemples et terminal réseau simulé.
 - **TD2** — [Mode d'emploi](td2/README.md), rapport `td2/rapport-td2.md`, pages HTML de BUT-Boutique.
+- **TD5** — [Mode d'emploi](td5/README.md), rapport `td5/rapport-td5.md`, jeu fictif de commandes et parcours WordPress Playground (Adminer et export ZIP).
+- **TD6** — [Mode d'emploi](td6/README.md), générateur SQLite depuis le CSV, requêtes d'IA à auditer et rapport `td6/rapport-td6.md`.
 - **TD4** — **Évaluation intermédiaire sur 20 points** : [Consignes pratiques](td4/README.md), rapport `td4/rapport-td4.md`, frise `td4/site-a/histoire-web.html` à modifier et page `td4/site-b/index.html` à laisser intacte.
 
 Les énoncés complets, le barème et les informations de remise figurent sur le **portail pédagogique CultureNumTC**.
@@ -39,6 +41,10 @@ python3 -m http.server 8001 --bind 0.0.0.0
 ```
 
 Dans l'onglet **Ports**, les deux ports 8000 et 8001 doivent rester **Private**. Pour arrêter chaque serveur, revenez à son terminal et tapez `Ctrl+C`. Les étapes détaillées et les commandes GET/POST figurent dans le **TD4** du portail.
+
+## WordPress n'est pas le serveur statique
+
+Pendant le TD5, le site WordPress s'exécute dans un onglet de navigateur distinct de Codespaces. L'interface Playground propose les outils **Files**, **Database → Adminer** (phpMyAdmin en option) et **Export → Download as .zip**. Le lien initial du Blueprint ne conserve pas vos modifications : seul un export du site ou un enregistrement explicite dans le navigateur permet de retrouver l'état du travail. La base du CMS n'est pas la base commerciale du TD6.
 
 ## Conserver vos réponses sans Git
 
