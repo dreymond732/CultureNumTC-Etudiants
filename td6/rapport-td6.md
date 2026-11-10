@@ -5,6 +5,7 @@
 - Clé primaire de Clients :
 - Clé étrangère de Commandes :
 - Rôle de LignesCommande :
+- Ma proposition de commande `CREATE TABLE` simplifiée pour une table, avec clé primaire :
 - Avantage pour le changement d'adresse d'Alice Martin :
 
 ## Exercice 2 — Observer des données
@@ -31,6 +32,12 @@
 - Montant calculé pour Alice Martin :
 - Colonnes et jointures utilisées :
 - Pourquoi ne pas simplement compter les lignes de commandes ?
+
+## Pour aller plus loin — modifications SQL sur une copie
+- Mon `INSERT INTO` de commande C012 et de ligne associée :
+- Mon `UPDATE` de l'adresse client et sa vérification SELECT :
+- Ce qui se passe pour un `DELETE` du produit P02 encore référencé :
+- Pourquoi la contrainte FK est-elle utile :
 
 ## Bilan
 - La différence entre le SQL syntaxiquement correct et la réponse correcte pour la question métier :

@@ -19,6 +19,10 @@ La progression reprend les missions du document historique « Gestion des comman
 5. **Dev Tools → Database → Adminer**, table `wp_posts`. Chercher la ligne de la page Mug BUT, comparer `post_title` et `post_content`. **Consultation uniquement : aucune suppression ou modification directe de `wp_posts`.** phpMyAdmin est facultatif, pour comparer les interfaces : il ouvre la même base SQLite.
 6. **Export → Download as .zip**. Télécharger l'archive complète du Playground **sur votre appareil**. Le ZIP inclut les fichiers et la base ; la modification du prix ne se trouve pas dans le lien de Blueprint original.
 
+## Importer le CSV dans un tableur francophone
+
+Le fichier utilise des **virgules entre les champs**, les guillemets sont rares et les prix sont au **format décimal avec un point** (ex. `12.50`). Lors de l'importation dans Excel, LibreOffice ou Google Sheets, précisez le séparateur `,` et vérifiez que `Prix_Unitaire` et `Quantite` sont bien des **nombres**. Si `12.50` apparaît comme du texte avec les paramètres français, convertissez explicitement la colonne numérique avant vos calculs. Gardez toujours le CSV initial intact.
+
 ## Les cinq missions historiques du tableur
 1. **Ajout :** la commande `C004` est déjà utilisée dans les données initiales, comme dans le jeu de commandes complet historique. Utilisez donc **`C012`**, une nouvelle commande de **Bob Dupont**, pour **2 T-shirts Code** à **25,00 €** l'unité ; réécrivez les autres champs du client déjà présent.
 2. **Mise à jour :** pour toutes les lignes d'Alice Martin, remplacez `Adresse fictive A` par `Adresse fictive Alice nouvelle`. Recomptez les cellules et vérifiez l'absence de valeurs contradictoires.

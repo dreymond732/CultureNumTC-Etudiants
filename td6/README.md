@@ -18,10 +18,14 @@ Le fichier `td6/boutique.sqlite` contient les tables `Clients`, `Produits`, `Com
 ## Questions à étudier
 
 1. Repérez les clés primaires et étrangères dans `generer_base.py`. Expliquez où se trouve l'adresse d'Alice Martin.
-2. Dans le client SQLite de Codespaces, utilisez `SELECT` pour voir les trois premières lignes des tables et contrôler les relations. Les données ne sont pas issues de la base interne `wp_posts` de Playground.
+2. **Réécrivez un `CREATE TABLE` simplifié pour l'une des tables**, avec sa clé primaire, puis utilisez `SELECT` pour voir les trois premières lignes des tables et contrôler les relations. Les données ne sont pas issues de la base interne `wp_posts` de Playground.
 3. Ouvrez `requetes_a_auditer.sql`. Pour chacune des **trois propositions d'IA**, décrivez d'abord le résultat attendu, puis exécutez-la et comparez avec les cas du TD5.
 4. Demandez éventuellement à Copilot une quatrième requête qui sélectionne les clients ayant acheté **Mug BUT ET T-shirt Code**, même à des dates différentes. Testez-la sur plusieurs cas, notamment Hugo Martin qui a plusieurs achats de Mug BUT mais aucun T-shirt Code.
 5. Imaginez une requête SQL pour calculer le chiffre d'affaires d'Alice Martin. Vérifiez qu'un même article acheté deux fois compte deux fois dans la somme.
+
+## Prolongement — opérations de modification issues du contrôle historique
+
+Dans **une copie de la base** seulement, expérimentez `INSERT INTO` pour ajouter C012 à Bob et une ligne de commande, `UPDATE Clients` pour l'adresse d'Alice, puis anticipez l'effet d'un `DELETE` sur un produit encore présent dans `LignesCommande`. Avec les clés étrangères activées, une suppression référencée peut être refusée. Conservez la base initiale pour les tests du TD6 et argumentez les différences avec le tableur.
 
 ## Sauvegarder et partager
 
