@@ -36,5 +36,5 @@
       }
     }
   },
-  "postCreateCommand": "python3 --version"
+  "postCreateCommand": "python3 --version && php -r 'echo extension_loaded(\"pdo_sqlite\") ? \"PDO_SQLITE_OK\\n\" : \"PDO_SQLITE_ABSENT\\n\";'"
 }
