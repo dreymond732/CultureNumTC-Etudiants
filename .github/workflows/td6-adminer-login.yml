@@ -1,0 +1,24 @@
+name: TD6 Adminer — authentification et usage tablette
+
+on:
+  pull_request:
+    paths:
+      - "td6/demarrer_adminer.sh"
+      - "td6/README.md"
+      - ".gitignore"
+      - "tests/test_adminer_login.py"
+      - ".github/workflows/td6-adminer-login.yml"
+  workflow_dispatch:
+
+jobs:
+  login-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier PHP et syntaxe Bash
+        run: |
+          php -v
+          bash -n td6/demarrer_adminer.sh
+      - name: Vérifier le plugin et ses champs préremplis
+        run: python3 -m unittest discover -s tests -p "test_adminer_login.py" -v
