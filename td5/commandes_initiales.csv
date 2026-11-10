@@ -1,0 +1,16 @@
+ID_Commande,Date,Nom_Client,Email_Client,Adresse_Client,ID_Produit,Nom_Produit,Prix_Unitaire,Quantite
+C001,01/10/2026,Alice Martin,alice@example.org,Adresse fictive A,P01,Mug BUT,12.50,2
+C001,01/10/2026,Alice Martin,alice@example.org,Adresse fictive A,P03,T-shirt Code,25.00,1
+C002,02/10/2026,Bob Dupont,bob@example.org,Adresse fictive B,P02,Sweat Info,45.00,1
+C003,03/10/2026,Alice Martin,alice@example.org,Adresse fictive A,P01,Mug BUT,12.50,3
+C003,03/10/2026,Alice Martin,alice@example.org,Adresse fictive A,P04,Stylo 404,3.50,5
+C004,04/10/2026,Marie Durand,marie@example.org,Adresse fictive C,P03,T-shirt Code,25.00,1
+C005,05/10/2026,Alfred Petit,alfred@example.org,Adresse fictive D,P01,Mug BUT,12.50,1
+C005,05/10/2026,Alfred Petit,alfred@example.org,Adresse fictive D,P02,Sweat Info,45.00,1
+C006,06/10/2026,Carla Rossi,carla@example.org,Adresse fictive E,P03,T-shirt Code,25.00,2
+C007,07/10/2026,Dana Dubois,dana@example.org,Adresse fictive F,P01,Mug BUT,12.50,1
+C007,07/10/2026,Dana Dubois,dana@example.org,Adresse fictive F,P03,T-shirt Code,25.00,1
+C008,08/10/2026,Hugo Martin,hugo@example.org,Adresse fictive G,P01,Mug BUT,12.50,2
+C009,09/10/2026,Alice Martin,alice@example.org,Adresse fictive A,P05,Tote Bag SQL,15.00,1
+C010,10/10/2026,Fatima Diallo,fatima@example.org,Adresse fictive H,P06,Sac Python,40.00,1
+C011,11/10/2026,Hugo Martin,hugo@example.org,Adresse fictive G,P01,Mug BUT,12.50,1
