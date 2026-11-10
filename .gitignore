@@ -5,3 +5,6 @@ td6/*.db
 td6/*.sqlite-wal
 td6/*.sqlite-shm
 __pycache__/
+
+# Code temporaire d'accès à Adminer (jamais versionné)
+td6/ACCES_ADMINER.txt
