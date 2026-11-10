@@ -1,34 +1,59 @@
-# TD6 — Lire et auditer SQL à partir du tableur du TD5
+# TD6 — Auditer des requêtes SQL avec Adminer
 
-**BUT TC Toulon · Suite de l'étude BUT-Boutique · IA possible comme aide au raisonnement**
+**BUT TC Toulon · 2 h · Suite de BUT-Boutique · Copilot = aide à vérifier, pas oracle**
 
-Au TD5, les prix et descriptions étaient des contenus WordPress, mais les commandes provenaient d'un CSV. Cette activité construit maintenant une **base relationnelle commerciale indépendante de WordPress** à partir du CSV fictif étudié.
+**Outil commun : Adminer.** Au TD5, vous avez observé la base interne de WordPress via **Playground → Dev Tools → Database → Adminer** (`wp_posts`). Au TD6, vous utiliserez **Adminer dans Codespaces** avec une autre base SQLite, cette fois commerciale. Ce sont deux bases différentes et indépendantes, pas une base WordPress avec des commandes.
 
-## Préparer la base
+## Démarrer en trois étapes
 
-Dans le terminal Codespaces, depuis la racine du dépôt :
+**Dans le dépôt étudiant** `CultureNumTC-Etudiants`, les dossiers `td5` et `td6` sont directement à la racine : **il n'y a pas de dossier `student-kit`**. Si vous êtes déjà dans `td6`, utilisez `python3 generer_base.py` et `bash demarrer_adminer.sh` au lieu des chemins relatifs ci-dessous. Le script de création ne doit être lancé qu'une fois par base.
 
-```bash
-python3 td6/generer_base.py
-python3 -m sqlite3 td6/boutique.sqlite "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;"
+1. Depuis la racine du Codespace, dans un premier terminal, créer la base depuis le CSV fictif du TD5 :
+
+   ```bash
+   python3 td6/generer_base.py
+   ```
+
+   Ce script n'écrase jamais `td6/boutique.sqlite` : si le fichier existe déjà, conservez-le.
+
+2. Dans un **second terminal**, démarrer Adminer :
+
+   ```bash
+   bash td6/demarrer_adminer.sh
+   ```
+
+   Le lancement réalise une copie non destructive `td6/boutique_adminer.sqlite`, télécharge la version figée d'Adminer et génère un mot de passe temporaire. Si la copie existe, elle n'est pas remplacée.
+
+3. Dans l'onglet **Ports** de Codespaces, ouvrir le **port 8765**, en vérifiant impérativement que la visibilité reste **Private**. Dans l'écran Adminer : **SQLite 3**, **utilisateur vide**, **mot de passe affiché dans le terminal**, **base = chemin complet indiqué dans le terminal**. Après connexion, vous devez voir les tables `Clients`, `Produits`, `Commandes`, `LignesCommande`.
+
+   Si PHP ou son pilote SQLite est absent, effectuer **Codespaces → Rebuild Container** pour installer les dépendances du cours, puis relancer la commande. S'il est impossible de télécharger Adminer, signaler le message d'erreur à l'enseignant, sans publier le port ni désactiver les contrôles de sécurité.
+
+**Important :** n'ouvrez jamais le port en mode Public, ne partagez pas le mot de passe et arrêtez le serveur avec `Ctrl+C` en fin de séance. Le répertoire HTTP d'Adminer est temporaire, séparé des fichiers `.sqlite`. La base initiale est préservée pour permettre des comparaisons fiables.
+
+## Exécuter une requête
+
+Dans Adminer, ouvrez la base et son onglet **SQL** (ou *Commande SQL*). Essayez séparément :
+
+```sql
+SELECT id_client, nom FROM Clients LIMIT 5;
 ```
 
-Le fichier `td6/boutique.sqlite` contient les tables `Clients`, `Produits`, `Commandes` et `LignesCommande`. Le script ne remplace jamais une base existante. En cas de deuxième essai, choisissez une autre sortie `--output` et gardez votre première copie.
+```sql
+SELECT id_commande, id_client FROM Commandes LIMIT 5;
+```
 
-## Questions à étudier
+Vérifiez que la base affichée est `boutique_adminer.sqlite`. L'onglet SQL remplace les commandes `python3 -m sqlite3` du prototype : **le terminal sert uniquement à créer la base et lancer Adminer**.
 
-1. Repérez les clés primaires et étrangères dans `generer_base.py`. Expliquez où se trouve l'adresse d'Alice Martin.
-2. **Réécrivez un `CREATE TABLE` simplifié pour l'une des tables**, avec sa clé primaire, puis utilisez `SELECT` pour voir les trois premières lignes des tables et contrôler les relations. Les données ne sont pas issues de la base interne `wp_posts` de Playground.
-3. Ouvrez `requetes_a_auditer.sql`. Pour chacune des **trois propositions d'IA**, décrivez d'abord le résultat attendu, puis exécutez-la et comparez avec les cas du TD5.
-4. Demandez éventuellement à Copilot une quatrième requête qui sélectionne les clients ayant acheté **Mug BUT ET T-shirt Code**, même à des dates différentes. Testez-la sur plusieurs cas, notamment Hugo Martin qui a plusieurs achats de Mug BUT mais aucun T-shirt Code.
-5. Imaginez une requête SQL pour calculer le chiffre d'affaires d'Alice Martin. Vérifiez qu'un même article acheté deux fois compte deux fois dans la somme.
+## Exercices à documenter dans `rapport-td6.md`
 
-## Prolongement — opérations de modification issues du contrôle historique
+1. **Schéma :** repérez clés primaires et étrangères dans Adminer et dans `generer_base.py`. Proposez un `CREATE TABLE` simplifié avec PK ; expliquez pourquoi l'adresse d'Alice est stockée une seule fois.
+2. **Observations :** inspectez les quatre tables. Copiez au moins un résultat réel de `SELECT` dans le rapport et expliquez comment `JOIN` relie commandes et clients.
+3. **Audit de trois requêtes d'IA :** ouvrez `requetes_a_auditer.sql`. Prédisez chaque résultat **avant** exécution, puis copiez chaque proposition individuellement dans **Adminer → SQL**. Testez la confusion ET/OU, la condition impossible et le `COUNT(*)` non discriminant.
+4. **Requête corrigée :** recherchez les clients ayant acheté **Mug BUT ET T-shirt Code**, éventuellement sur deux commandes différentes. Testez le cas d'Hugo Martin, qui a acheté plusieurs mugs et aucun T-shirt. Une requête qui s'exécute sans erreur n'est pas forcément juste.
+5. **Retour au contrôle historique :** produisez une requête `SELECT` pour le chiffre d'affaires d'Alice et confrontez-la au calcul du TD5. Analysez le changement d'adresse et l'effet d'un `DELETE` sur un produit référencé.
 
-Dans **une copie de la base** seulement, expérimentez `INSERT INTO` pour ajouter C012 à Bob et une ligne de commande, `UPDATE Clients` pour l'adresse d'Alice, puis anticipez l'effet d'un `DELETE` sur un produit encore présent dans `LignesCommande`. Avec les clés étrangères activées, une suppression référencée peut être refusée. Conservez la base initiale pour les tests du TD6 et argumentez les différences avec le tableur.
+## Modifications facultatives et précautions
 
-## Sauvegarder et partager
+Pour `INSERT INTO`, `UPDATE` et `DELETE`, utilisez **uniquement la copie `boutique_adminer.sqlite` ouverte dans Adminer**, pas `boutique.sqlite`. Avec les clés étrangères actives, la suppression d'un produit référencé peut être refusée. N'exécutez pas d'instructions SQL provenant d'un inconnu. Les données sont fictives ; ne publiez ni base, ni rapport, ni port dans GitHub public.
 
-Ne publiez pas la base, vos requêtes ni les rapports individuels sur le dépôt GitHub public. Enregistrez `rapport-td6.md` pendant le TD et téléchargez-le à la fin.
-
-**Mode de correction futur :** un correcteur isolé pourra exécuter des requêtes `SELECT` autorisées sur des bases synthétiques de test, et comparer les résultats à un oracle non visible des étudiants. La présence d'une requête syntaxiquement valide ne suffit pas à prouver sa justesse.
+En fin de TD, conservez `rapport-td6.md`, votre requête corrigée et, si nécessaire, votre copie modifiée. **Aucun correcteur SQL public n'est actif** ; un éventuel correcteur futur utiliserait un environnement isolé et des données fictives.
