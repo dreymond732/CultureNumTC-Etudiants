@@ -1,0 +1,49 @@
+name: TD6 Adminer — authentification et usage tablette
+
+on:
+  pull_request:
+    paths:
+      - "td6/demarrer_adminer.sh"
+      - "td6/README.md"
+      - ".gitignore"
+      - "tests/test_adminer_login.py"
+      - "tests/test_adminer_http.py"
+      - ".github/workflows/td6-adminer-login.yml"
+  workflow_dispatch:
+
+jobs:
+  login-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier PHP et syntaxe Bash
+        run: |
+          php -v
+          bash -n td6/demarrer_adminer.sh
+      - name: Vérifier le plugin et ses champs préremplis
+        run: python3 -m unittest discover -s tests -p "test_adminer_login.py" -v
+      - name: Installer le pilote SQLite PHP si nécessaire
+        run: |
+          if ! php -r 'exit(extension_loaded("pdo_sqlite") ? 0 : 1);'; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends php-sqlite3
+          fi
+      - name: Tester le véritable Adminer 6.0.0 et la connexion SQLite
+        run: |
+          python3 td6/generer_base.py
+          bash td6/demarrer_adminer.sh >/tmp/td6-adminer.log 2>&1 &
+          PID=$!
+          trap 'kill "$PID" 2>/dev/null || true; wait "$PID" 2>/dev/null || true' EXIT
+          for i in $(seq 1 45); do
+            if test -f td6/ACCES_ADMINER.txt && curl -fsS -o /dev/null http://127.0.0.1:8765/; then
+              break
+            fi
+            sleep 1
+          done
+          if ! python3 tests/test_adminer_http.py; then
+            echo "Journal Adminer (sans afficher le code d'accès) :"
+            grep -E 'PHP|error|ERROR|Fatal|Warning' /tmp/td6-adminer.log | tail -30 || true
+            exit 1
+          fi
+

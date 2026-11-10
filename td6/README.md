@@ -22,13 +22,13 @@
    bash td6/demarrer_adminer.sh
    ```
 
-   Le lancement réalise une copie non destructive `td6/boutique_adminer.sqlite`, télécharge la version figée d'Adminer et génère un mot de passe temporaire. Si la copie existe, elle n'est pas remplacée.
+   Le lancement crée si besoin une copie non destructive `td6/boutique_adminer.sqlite`, télécharge Adminer et génère un **code temporaire à huit chiffres**. Il crée aussi `td6/ACCES_ADMINER.txt`, fichier privé temporaire pratique à ouvrir dans VS Code sur tablette pour voir le code. Si la copie SQLite existe déjà, elle n'est pas écrasée.
 
-3. Dans l'onglet **Ports** de Codespaces, ouvrir le **port 8765**, en vérifiant impérativement que la visibilité reste **Private**. Dans l'écran Adminer : **SQLite 3**, **utilisateur vide**, **mot de passe affiché dans le terminal**, **base = chemin complet indiqué dans le terminal**. Après connexion, vous devez voir les tables `Clients`, `Produits`, `Commandes`, `LignesCommande`.
+3. Dans l'onglet **Ports** de Codespaces, ouvrir le **port 8765**, en vérifiant impérativement que la visibilité reste **Private**. Dans Adminer, le formulaire indique déjà **SQLite 3** et **boutique_adminer.sqlite** : **aucun identifiant ni long chemin à recopier**. Il suffit de saisir le **code à huit chiffres** lu dans le terminal, ou dans `td6/ACCES_ADMINER.txt` ouvert dans l'éditeur sur tablette. En cas d'erreur de code, un message clair apparaît ; SQLite lui-même ne gère pas de mots de passe. Après connexion, vérifiez les tables `Clients`, `Produits`, `Commandes` et `LignesCommande`.
 
    Si PHP ou son pilote SQLite est absent, effectuer **Codespaces → Rebuild Container** pour installer les dépendances du cours, puis relancer la commande. S'il est impossible de télécharger Adminer, signaler le message d'erreur à l'enseignant, sans publier le port ni désactiver les contrôles de sécurité.
 
-**Important :** n'ouvrez jamais le port en mode Public, ne partagez pas le mot de passe et arrêtez le serveur avec `Ctrl+C` en fin de séance. Le répertoire HTTP d'Adminer est temporaire, séparé des fichiers `.sqlite`. La base initiale est préservée pour permettre des comparaisons fiables.
+**Important :** n'ouvrez jamais le port en mode Public, ne partagez pas le code et arrêtez le serveur avec `Ctrl+C` en fin de séance. Le fichier `ACCES_ADMINER.txt` sera supprimé à l'arrêt et ignoré par Git. Ne copiez pas le code dans un rapport ni dans le chat. Le répertoire HTTP d'Adminer est temporaire et séparé des fichiers `.sqlite`. La base initiale est préservée pour permettre des comparaisons fiables.
 
 ## Exécuter une requête
 
