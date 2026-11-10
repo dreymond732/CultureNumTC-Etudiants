@@ -5,7 +5,8 @@
   },
   "forwardPorts": [
     8000,
-    8001
+    8001,
+    8765
   ],
   "portsAttributes": {
     "8000": {
@@ -14,6 +15,10 @@
     },
     "8001": {
       "label": "BUT TC Toulon — serveur B TD4",
+      "onAutoForward": "notify"
+    },
+    "8765": {
+      "label": "BUT-Boutique — Adminer TD6 (Private uniquement)",
       "onAutoForward": "notify"
     }
   },
