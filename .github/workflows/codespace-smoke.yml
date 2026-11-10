@@ -1,0 +1,25 @@
+name: Vérification du conteneur TD6 (Python / PHP / SQLite)
+
+on:
+  pull_request:
+    paths:
+      - ".devcontainer/**"
+      - ".github/workflows/codespace-smoke.yml"
+  workflow_dispatch:
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Construire le conteneur à partir du Dockerfile
+        run: docker build --progress=plain -t td6-codespace-smoke -f .devcontainer/Dockerfile .devcontainer
+      - name: Vérifier Python, SQLite et PHP PDO SQLite
+        run: |
+          docker run --rm td6-codespace-smoke bash -lc '
+            python3 -c "import sqlite3, csv, decimal; print(\"PYTHON_SQLITE_OK\")" &&
+            php -r "if (!extension_loaded(\"pdo_sqlite\")) { exit(1); } echo \"PDO_SQLITE_OK\\n\";" &&
+            command -v curl &&
+            command -v git
+          '
