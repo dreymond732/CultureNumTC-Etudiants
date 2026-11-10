@@ -22,10 +22,12 @@ jobs:
           test -f prototypes/but-boutique-wp/theme-but-boutique/style.css
           test -f prototypes/but-boutique-wp/theme-but-boutique/templates/index.html
       - name: Vérifier le lien public RAW du Blueprint et les autorisations CORS
+        env:
+          REF_NAME: ${{ github.head_ref || github.ref_name }}
         run: |
           curl -fLsS --retry 3 --max-time 40 \
             -D /tmp/but-headers -o /tmp/but-blueprint.json \
-            'https://raw.githubusercontent.com/dreymond732/CultureNumTC-Etudiants/prototype/td5-playground-td6-sqlite/prototypes/but-boutique-wp/blueprint.json'
+            "https://raw.githubusercontent.com/dreymond732/CultureNumTC-Etudiants/${REF_NAME}/prototypes/but-boutique-wp/blueprint.json"
           cmp /tmp/but-blueprint.json prototypes/but-boutique-wp/blueprint.json
           grep -iq 'access-control-allow-origin: \*' /tmp/but-headers
       - name: Vérifier la syntaxe PHP du Blueprint
@@ -43,3 +45,5 @@ jobs:
           python prototypes/sqlite-boutique/preparer.py --output /tmp/but-prototype.sqlite
           python prototypes/sqlite-boutique/explorer.py clients --db /tmp/but-prototype.sqlite
           python -m sqlite3 /tmp/but-prototype.sqlite 'PRAGMA integrity_check;'
+          python td6/generer_base.py --output /tmp/td6-but.sqlite
+          python -m sqlite3 /tmp/td6-but.sqlite 'PRAGMA foreign_key_check;'

@@ -4,7 +4,7 @@
 
 Cette base est **distincte de la base SQLite interne de WordPress Playground** : elle sert à apprendre les notions de clé primaire, clé étrangère, table de lignes de commande, jointure et vérification sémantique du SQL.
 
-Données 100 % synthétiques : huit clients « Client A » à « Client H », trois produits (« Mug BUT », « T-shirt TC », « Sac tissu »), onze commandes et douze lignes de commande. Aucun client réel, pas d'information personnelle.
+Données 100 % synthétiques : huit clients « Client A » à « Client H », trois produits (« Mug BUT », « T-shirt Code », « Sac tissu »), onze commandes et douze lignes de commande. Aucun client réel, pas d'information personnelle.
 
 ## Dans le terminal Codespaces
 
@@ -26,7 +26,7 @@ Le script ne remplace jamais silencieusement une base préexistante. Si `boutiqu
 
 ## Expérience métier
 
-La question est : « Quels clients ont acheté **les deux produits** Mug BUT **et** T-shirt TC ? »
+La question est : « Quels clients ont acheté **les deux produits** Mug BUT **et** T-shirt Code ? »
 
 Ouvrez `requetes_a_auditer.sql` : trois propositions d'IA sont volontairement imparfaites. Décrivez leurs erreurs et les contre-exemples nécessaires. Ne prenez pas le fait qu'une requête **s'exécute sans erreur** comme preuve qu'elle répond à la question.
 
