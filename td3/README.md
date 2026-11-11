@@ -24,19 +24,20 @@ python3 -m http.server 8000 --bind 0.0.0.0
 
 Dans l'onglet **Ports** de Codespaces, ouvrez le port **8000 en visibilité Private**. Consultez `but-boutique.html`, puis `frise-web.html`. Si le port 8000 est déjà utilisé, arrêtez le serveur du TD2 avec `Ctrl+C` avant de recommencer. N'ouvrez pas la boutique à travers WordPress : ici, nous diagnostiquons le CSS de **fichiers statiques**.
 
-## Enquête 1 — Ce que ciblent réellement les sélecteurs (20 min)
+## Enquête 1 — Ce que ciblent réellement les sélecteurs (15 min)
 
 1. Comparez le HTML et la feuille CSS de la boutique : quels rôles jouent `h1`, `.produit`, `#promo` et `a:hover` ? Une classe peut-elle concerner plusieurs fiches ?
 2. Dans `frise-web.html`, utilisez l'**Aide-Sélecteur CSS** pour tester au moins quatre sélecteurs différents : un nom de balise, une classe, un identifiant et un sélecteur combiné. Notez pour chacun le nombre d'éléments trouvés. En cas de sélecteur invalide, observez le message de l'outil.
 3. Avant de corriger, décrivez **deux symptômes** visibles dans chaque page (boutique et frise). Distinguez la règle CSS suspectée de l'élément HTML qui devrait être ciblé.
 
-## Enquête 2 — Réparer le catalogue sans dommages collatéraux (25 min)
+## Enquête 2 — Réparer le catalogue sans dommages collatéraux (30 min)
 
 Les fiches de la boutique doivent être distinctes, l'offre mise en valeur **uniquement sur le Mug**, et les liens d'action utilisables au repos, au survol et au clavier.
 
 1. Diagnostiquez pourquoi les styles de fiche ne produisent pas l'effet attendu. Corrigez le **sélecteur réellement en cause**, pas toutes les fiches HTML.
 2. Faites ressortir l'offre du Mug, **sans modifier l'apparence des deux autres fiches**. Vérifiez le résultat sur les trois produits, et notez votre contre-exemple (« ce qui ne doit pas changer »).
 3. Rendez les liens d'action lisibles dans **trois états** : normal, survol et focus clavier (`Tab`). Justifiez les couleurs et l'indication de focus choisies. Une simple suppression du lien n'est pas une correction.
+4. Dans la boutique, choisissez un **sélecteur d'élément** ciblant un titre pertinent (par exemple `h2`) et ajustez **deux propriétés CSS** de manière lisible. Expliquez en quoi sa portée est différente de `.produit` et `#promo` : le résultat ne doit pas dégrader les titres des fiches.
 
 Pour chaque réparation, renseignez dans le rapport : **symptôme → hypothèse → règle trouvée → modification ciblée → preuve avant/après**. Une modification globale qui casse un autre produit n'est pas une réponse valide.
 
