@@ -1,0 +1,55 @@
+/* TD3 — Frise de l'histoire du Web, dans l'esprit de l'exercice d'origine.
+   Les sept événements et l'Aide-Sélecteur sont fournis.
+   Diagnostiquez les styles sans réécrire leur contenu historique.
+   Des déclarations peuvent interagir par la cascade et la spécificité. */
+:root { --fond: #f0f5fa; --encre: #193247; --accent: #205c9a; --bordure: #ccd9e5; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 1rem/1.6 system-ui, sans-serif; background: var(--fond); color: var(--encre); }
+a { color: #075c9c; }
+a:hover { text-decoration: none; }
+.lien-saut { position: absolute; top: -5rem; left: 1rem; padding: .5rem; background: white; }
+.lien-saut:focus { top: .5rem; z-index: 10; }
+.entete { background: #dcebf7; padding: 2rem max(1.3rem, calc((100vw - 960px)/2)); }
+.entete h1 { margin: .2rem 0; font-size: clamp(1.8rem, 3vw, 2.6rem); }
+.entete p { max-width: 70ch; }
+.kicker { font-size: .78rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; color: #335d85; }
+.entete nav { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+main { max-width: 1060px; padding: 2rem 1.2rem 3rem; margin: auto; }
+.frise h2 { margin: 0; }
+.intro { max-width: 75ch; }
+
+/* Zone 1 — chronologie et alternance des cartes. */
+.frise { min-width: 850px; }
+.chronologie { list-style: none; margin: 2rem 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.25rem; }
+.evenement { border: 2px solid var(--bordure); border-radius: 14px; padding: 1.2rem; min-width: 0; }
+.evenement:nth-child(even) { transform: translateY(1.4rem); }
+.evenement time { font-weight: 800; letter-spacing: .025em; color: #275d87; }
+.evenement h3 { margin: .25rem 0; line-height: 1.3; }
+.evenement p { margin: .4rem 0; }
+.contenu { max-width: 70ch; }
+
+/* Zone 2 — repères majeurs : observez quelle règle gagne dans le navigateur. */
+.evenement--jalon { background: #d9f3e5; border-color: #32835c; }
+.frise .evenement { background: white; }
+
+/* Zone 3 — enrichir la distinction des publications collaboratives
+   (les classes existent déjà dans le HTML). */
+.evenement--publication { border-style: dashed; }
+
+/* Zone 4 — les liens restent utiles sans souris. */
+a:focus-visible { outline: 0; }
+
+/* Zone 5 — petit écran : la disposition doit être relue et adaptée. */
+@media (max-width: 660px) {
+  .chronologie { grid-template-columns: repeat(2, minmax(300px, 1fr)); }
+  .evenement:nth-child(even) { transform: translateY(1.4rem); }
+}
+
+.aide-selecteur { background: #e6f1fc; padding: 1.25rem; border-radius: 14px; border: 1px solid #b7d4ed; margin-top: 2.6rem; }
+.aide-selecteur h2 { margin-top: 0; }
+.aide-selecteur label { display: block; font-weight: 750; margin-bottom: .35rem; }
+.aide-selecteur input { padding: .65rem; max-width: 100%; width: 24rem; font: inherit; border-radius: 7px; border: 1px solid #7b99b3; }
+.aide-selecteur button { padding: .65rem; font: inherit; margin: .55rem; border-radius: 7px; border: 1px solid #618bb1; background: white; cursor: pointer; }
+.resultat-selecteur { min-height: 1.4rem; font-weight: 700; }
+.aide-selecteur .cible-testee { outline: 4px solid #d45e20 !important; outline-offset: 3px !important; }
+footer { text-align: center; padding: 1.5rem; color: #46617a; }
