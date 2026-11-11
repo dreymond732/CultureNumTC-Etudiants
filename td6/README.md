@@ -22,9 +22,9 @@
    bash td6/demarrer_adminer.sh
    ```
 
-   Le lancement crée si besoin une copie non destructive `td6/boutique_adminer.sqlite`, télécharge Adminer et génère un **code temporaire à huit chiffres**. Il crée aussi `td6/ACCES_ADMINER.txt`, fichier privé temporaire pratique à ouvrir dans VS Code sur tablette pour voir le code. Si la copie SQLite existe déjà, elle n'est pas écrasée.
+   Le lancement crée si besoin une copie non destructive `td6/boutique_adminer.sqlite`, télécharge Adminer et génère un **code temporaire à huit chiffres**. Il crée aussi `td6/ACCES_ADMINER.txt`, fichier privé temporaire à ouvrir directement dans VS Code, sur ordinateur comme sur tablette, pour retrouver et copier le code. Si la copie SQLite existe déjà, elle n'est pas écrasée.
 
-3. Dans l'onglet **Ports** de Codespaces, ouvrir le **port 8765**, en vérifiant impérativement que la visibilité reste **Private**. Dans Adminer, le formulaire indique déjà **SQLite 3** et **boutique_adminer.sqlite** : **aucun identifiant ni long chemin à recopier**. Il suffit de saisir le **code à huit chiffres** lu dans le terminal, ou dans `td6/ACCES_ADMINER.txt` ouvert dans l'éditeur sur tablette. En cas d'erreur de code, un message clair apparaît ; SQLite lui-même ne gère pas de mots de passe. Après connexion, vérifiez les tables `Clients`, `Produits`, `Commandes` et `LignesCommande`.
+3. Dans l'onglet **Ports** de Codespaces, ouvrir le **port 8765**, en vérifiant impérativement que la visibilité reste **Private**. Dans Adminer, le formulaire indique déjà **SQLite 3** et **boutique_adminer.sqlite** : **aucun identifiant ni long chemin à recopier**. Il suffit de saisir le **code à huit chiffres** lu dans le terminal, ou dans `td6/ACCES_ADMINER.txt` ouvert dans l'éditeur VS Code. **Cette méthode est recommandée sur tous les appareils**, et pas seulement sur tablette. En cas d'erreur de code, un message clair apparaît ; SQLite lui-même ne gère pas de mots de passe. Après connexion, vérifiez les tables `Clients`, `Produits`, `Commandes` et `LignesCommande`.
 
    Si PHP ou son pilote SQLite est absent, effectuer **Codespaces → Rebuild Container** pour installer les dépendances du cours, puis relancer la commande. S'il est impossible de télécharger Adminer, signaler le message d'erreur à l'enseignant, sans publier le port ni désactiver les contrôles de sécurité.
 
