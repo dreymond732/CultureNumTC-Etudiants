@@ -46,7 +46,7 @@ Vérifiez que la base affichée est `boutique_adminer.sqlite`. L'onglet SQL remp
 
 ## Lire une requête en français — avant l'audit de l'IA
 
-Ouvrez `td6/requetes_decouverte.sql` : les **huit requêtes de découverte D1 à D8** y sont écrites intégralement, chacune suivie d'une courte explication en français. Exécutez-les **séparément** dans Adminer, sur la copie `boutique_adminer.sqlite`. Cette étape sert à reconnaître ce que fait une requête avant de juger celles d'une IA.
+Ouvrez `td6/requetes_decouverte.sql` : les **huit requêtes de découverte D1 à D8** y sont écrites intégralement, chacune suivie d'une courte explication en français. Ces exemples sont une **fiche de rappel** : si nécessaire, rejouez une requête **séparément** dans Adminer, sur la copie `boutique_adminer.sqlite`, sans devoir refaire les huit. L'objectif est de reconnaître ce que fait une requête avant de juger celles d'une IA.
 
 | Requête | Lecture en français simple |
 | --- | --- |
