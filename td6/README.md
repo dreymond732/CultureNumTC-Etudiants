@@ -48,7 +48,7 @@ Vérifiez que la base affichée est `boutique_adminer.sqlite`. L'onglet SQL remp
 
 1. **Schéma :** repérez clés primaires et étrangères dans Adminer et dans `generer_base.py`. Proposez un `CREATE TABLE` simplifié avec PK ; expliquez pourquoi l'adresse d'Alice est stockée une seule fois.
 2. **Observations :** inspectez les quatre tables. Copiez au moins un résultat réel de `SELECT` dans le rapport et expliquez comment `JOIN` relie commandes et clients.
-3. **Audit de trois requêtes d'IA :** ouvrez `requetes_a_auditer.sql`. Prédisez chaque résultat **avant** exécution, puis copiez chaque proposition individuellement dans **Adminer → SQL**. Testez la confusion ET/OU, la condition impossible et le `COUNT(*)` non discriminant.
+3. **Audit de trois requêtes d'IA :** ouvrez `requetes_a_auditer.sql`. Pour chaque proposition, **prédisez les clients qui apparaîtront avant de l'exécuter**, puis copiez-la individuellement dans **Adminer → SQL**. Comparez les résultats à la question commerciale et aux données de départ : la requête répond-elle exactement à la question ? **Localisez et expliquez vous-même une éventuelle erreur logique, sans indices dans les titres.**
 4. **Requête corrigée :** recherchez les clients ayant acheté **Mug BUT ET T-shirt Code**, éventuellement sur deux commandes différentes. Testez le cas d'Hugo Martin, qui a acheté plusieurs mugs et aucun T-shirt. Une requête qui s'exécute sans erreur n'est pas forcément juste.
 5. **Retour au contrôle historique :** produisez une requête `SELECT` pour le chiffre d'affaires d'Alice et confrontez-la au calcul du TD5. Analysez le changement d'adresse et l'effet d'un `DELETE` sur un produit référencé.
 
