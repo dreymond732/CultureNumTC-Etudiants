@@ -1,0 +1,25 @@
+name: "TD1/TD2 — progression et consigne Git"
+
+on:
+  pull_request:
+    paths:
+      - "README.md"
+      - "td1/**"
+      - "td2/**"
+      - "tests/test_td1_td2_migration.py"
+      - ".github/workflows/td1-td2-integrite.yml"
+  workflow_dispatch:
+
+jobs:
+  coherence:
+    name: "Rapports et non-publication"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: "Contrôler TD1, TD2 et README"
+        run: python -m unittest discover -s tests -p 'test_td1_td2_migration.py' -v
