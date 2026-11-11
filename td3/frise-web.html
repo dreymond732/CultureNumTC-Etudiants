@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Une brève histoire du Web — atelier CSS TD3</title>
+  <link rel="stylesheet" href="css/frise.css">
+  <script defer src="js/aide-selecteur.js"></script>
+</head>
+<body>
+  <a class="lien-saut" href="#chronologie">Aller à la chronologie</a>
+  <header class="entete">
+    <p class="kicker">BUT TC Toulon · TD3 · CSS et chronologie</p>
+    <h1>Une brève histoire du Web</h1>
+    <p>Du Web conçu au CERN aux outils de publication : découvrez comment les choix de CSS modifient une présentation sans réécrire les événements.</p>
+    <nav aria-label="Navigation"><a href="but-boutique.html">Retour à BUT-Boutique</a><a href="#tester">Aide-Sélecteur CSS</a></nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="titre-chronologie" class="frise">
+      <h2 id="titre-chronologie">Repères chronologiques</h2>
+      <p class="intro">Cette frise prolonge l'ancien exercice sur l'histoire du Web. Les événements et leurs dates sont fournis : au TD3, vous diagnostiquez leur présentation, non leur contenu historique.</p>
+      <ol class="chronologie" id="chronologie">
+        <li class="evenement evenement--jalon" id="web-1989" data-annee="1989">
+          <time datetime="1989">1989</time><div class="contenu"><h3>Naissance du World Wide Web</h3><p>Au CERN, Tim Berners-Lee propose un système de documents reliés par des liens hypertextes, à l'origine du Web.</p><p><a href="https://home.cern/science/computing/birth-web">Découvrir les archives du CERN</a></p></div>
+        </li>
+        <li class="evenement" id="web-1993" data-annee="1993">
+          <time datetime="1993">1993</time><div class="contenu"><h3>Mosaic et le Web graphique</h3><p>Le navigateur Mosaic contribue à populariser la navigation graphique sur le Web.</p></div>
+        </li>
+        <li class="evenement" id="web-1995" data-annee="1995">
+          <time datetime="1995">1995</time><div class="contenu"><h3>JavaScript</h3><p>JavaScript apporte de nouvelles possibilités d'interaction dans les pages Web.</p></div>
+        </li>
+        <li class="evenement evenement--jalon" id="web-1996" data-annee="1996">
+          <time datetime="1996">1996</time><div class="contenu"><h3>Première recommandation CSS</h3><p>Les feuilles de style permettent de distinguer davantage les contenus HTML de leur présentation.</p><p><a href="https://www.w3.org/Style/CSS/history.html">Consulter l'histoire des CSS au W3C</a></p></div>
+        </li>
+        <li class="evenement evenement--publication" id="web-2001" data-annee="2001">
+          <time datetime="2001">2001</time><div class="contenu"><h3>Wikipédia</h3><p>Une encyclopédie collaborative montre la place croissante de la contribution des internautes.</p></div>
+        </li>
+        <li class="evenement evenement--publication" id="web-2003" data-annee="2003">
+          <time datetime="2003">2003</time><div class="contenu"><h3>WordPress et les CMS</h3><p>Les systèmes de gestion de contenu facilitent la publication sans écriture manuelle de chaque page.</p></div>
+        </li>
+        <li class="evenement" id="web-2005" data-annee="2005">
+          <time datetime="2005">2005</time><div class="contenu"><h3>Applications Web interactives</h3><p>Des interfaces utilisant AJAX peuvent actualiser une partie d'une page sans la recharger entièrement.</p></div>
+        </li>
+      </ol>
+    </section>
+
+    <aside class="aide-selecteur" id="tester" aria-labelledby="titre-aide" data-aide-selecteur>
+      <h2 id="titre-aide">Aide-Sélecteur CSS</h2>
+      <p>Comme dans l'ancien exercice de frise, ce panneau permet de tester un sélecteur et de voir les éléments qu'il cible. Il <strong>ne modifie pas</strong> votre feuille CSS.</p>
+      <label for="selecteur-a-tester">Sélecteur CSS à tester</label>
+      <input id="selecteur-a-tester" type="text" autocomplete="off" spellcheck="false" placeholder="Exemple : .evenement" aria-describedby="resultat-selecteur">
+      <button type="button" id="effacer-selection">Effacer le surlignage</button>
+      <p id="resultat-selecteur" class="resultat-selecteur" role="status" aria-live="polite">Aucun sélecteur testé.</p>
+    </aside>
+  </main>
+  <footer><p>Les contenus historiques sont fournis pour travailler sur le CSS · aucun nom ni identifiant étudiant demandé.</p></footer>
+</body>
+</html>
