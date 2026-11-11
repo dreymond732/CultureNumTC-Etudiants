@@ -18,7 +18,7 @@ class TestProgressionTD1TD2(unittest.TestCase):
         self.assertGreater(report.index("## Bilan comparatif — Wix et Codespaces"),
                            report.index("## Exercice 4"))
         self.assertIn("Dans Codespaces, j'ai effectivement manipulé", report)
-        self.assertIn("cette comparaison n'est plus demandée au TD1", readme.lower())
+        self.assertIn("cette comparaison n'est plus demandée au td1", readme.lower())
 
     def test_readme_warns_against_git_publication(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
