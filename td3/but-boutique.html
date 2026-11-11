@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BUT-Boutique — diagnostic CSS (TD3)</title>
+  <link rel="stylesheet" href="css/boutique.css">
+</head>
+<body>
+  <a class="lien-saut" href="#contenu">Aller au catalogue</a>
+  <header class="entete">
+    <p class="etiquette">BUT TC Toulon · Atelier CSS · TD3</p>
+    <h1>BUT-Boutique</h1>
+    <p>Un catalogue fictif repris de la page HTML du TD2. Il ne permet aucun achat réel.</p>
+    <nav aria-label="Navigation de l'atelier">
+      <a href="#catalogue">Catalogue</a>
+      <a href="frise-web.html">Histoire du Web</a>
+      <a href="#informations">Informations</a>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <section id="catalogue" aria-labelledby="titre-catalogue">
+      <div class="section-titre">
+        <div>
+          <p class="etiquette">Découvrir · comparer · diagnostiquer</p>
+          <h2 id="titre-catalogue">Les produits de la boutique</h2>
+        </div>
+        <p class="mention">Prix fictifs : aucune commande n'est enregistrée.</p>
+      </div>
+      <div class="grille-produits">
+        <article class="produit" id="promo" data-reference="P01">
+          <span class="pastille">Sélection de la semaine</span>
+          <img src="images/mug.svg" alt="Illustration schématique du Mug BUT bleu" width="320" height="240">
+          <h3>Mug BUT</h3>
+          <p>Une tasse de démonstration pour parler du Web et des CSS.</p>
+          <p class="prix">12,50 €</p>
+          <a class="action" href="#informations">Informations sur le Mug</a>
+        </article>
+        <article class="produit" data-reference="P03">
+          <span class="pastille pastille--neutre">Textile</span>
+          <div class="visuel-texte" aria-hidden="true">&lt;html&gt;</div>
+          <h3>T-shirt Code</h3>
+          <p>Un support fictif pour distinguer contenu et mise en forme.</p>
+          <p class="prix">25,00 €</p>
+          <a class="action" href="#informations">Informations sur le T-shirt</a>
+        </article>
+        <article class="produit" data-reference="P05">
+          <span class="pastille pastille--neutre">Accessoire</span>
+          <div class="visuel-texte visuel-texte--vert" aria-hidden="true">SQL</div>
+          <h3>Tote Bag SQL</h3>
+          <p>Une occasion de relier les outils du cours.</p>
+          <p class="prix">15,00 €</p>
+          <a class="action" href="#informations">Informations sur le sac</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="informations" class="information" aria-labelledby="titre-infos">
+      <h2 id="titre-infos">À quoi sert cette page ?</h2>
+      <p>Au TD2, vous modifiiez surtout la structure HTML et les textes. Au TD3, le contenu de cette page doit rester stable : vous intervenez sur <code>css/boutique.css</code> et vérifiez les effets dans le navigateur.</p>
+      <p>La frise <a href="frise-web.html">Une brève histoire du Web</a> prolonge l'activité avec une autre organisation des éléments.</p>
+    </section>
+  </main>
+  <footer><p>Support pédagogique fictif · aucun achat, compte ou collecte de données.</p></footer>
+</body>
+</html>
