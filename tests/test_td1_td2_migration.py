@@ -1,24 +1,32 @@
-"""Protection des rapports student : pas de publication Git et comparaison Wix au TD2."""
+"""Protection des rapports TD1/TD2 et de la consigne de non-publication Git."""
 from pathlib import Path
+import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 
-def test_td1_keeps_seven_exercises_without_wix_comparison():
-    md = (ROOT / "td1/rapport-td1.md").read_text(encoding="utf-8")
-    assert all(f"## Exercice {i}" in md for i in range(1, 8))
-    assert "### Mon usage de Wix" not in md
-    assert "## Bilan personnel" in md
+class TestProgressionTD1TD2(unittest.TestCase):
+    def test_td1_seven_exercises_without_wix(self):
+        md = (ROOT / "td1/rapport-td1.md").read_text(encoding="utf-8")
+        for i in range(1, 8):
+            self.assertIn(f"## Exercice {i}", md)
+        self.assertNotIn("### Mon usage de Wix", md)
+        self.assertIn("## Bilan personnel", md)
 
-def test_td2_includes_wix_after_real_server_practice():
-    report = (ROOT / "td2/rapport-td2.md").read_text(encoding="utf-8")
-    readme = (ROOT / "td2/README.md").read_text(encoding="utf-8")
-    assert report.index("## Bilan comparatif — Wix et Codespaces") > report.index("## Exercice 4")
-    assert "Dans Codespaces, j'ai effectivement manipulé" in report
-    assert "cette comparaison n'est plus demandée au TD1".lower() in readme.lower()
+    def test_wix_at_end_of_td2_after_server_practice(self):
+        report = (ROOT / "td2/rapport-td2.md").read_text(encoding="utf-8")
+        readme = (ROOT / "td2/README.md").read_text(encoding="utf-8")
+        self.assertGreater(report.index("## Bilan comparatif — Wix et Codespaces"),
+                           report.index("## Exercice 4"))
+        self.assertIn("Dans Codespaces, j'ai effectivement manipulé", report)
+        self.assertIn("cette comparaison n'est plus demandée au TD1", readme.lower())
 
-def test_single_readme_warning_prescribes_classroom_submission():
-    root = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert "NE CLIQUEZ PAS" in root
-    assert "Synchroniser" in root and "Publier une branche" in root
-    assert "voie de remise" in root
-    assert "Codespace supprimé" in root
+    def test_readme_warns_against_git_publication(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("NE CLIQUEZ PAS", readme)
+        self.assertIn("Synchroniser", readme)
+        self.assertIn("Publier une branche", readme)
+        self.assertIn("voie de remise", readme)
+        self.assertIn("Codespace supprimé", readme)
+
+if __name__ == "__main__":
+    unittest.main()
