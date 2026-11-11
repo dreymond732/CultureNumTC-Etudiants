@@ -37,6 +37,10 @@ curl -I http://127.0.0.1:8000/introuvable.html
 ```
 Une fois les tests terminés, revenez au premier terminal et arrêtez le serveur avec `Ctrl+C`.
 
+## À la fin du TD2 — Wix et Codespaces (5 min incluses dans l'exercice 4)
+
+Maintenant que vous avez **modifié le HTML** et ouvert votre page avec **le serveur Codespaces**, revenez sur votre expérience de Wix pour le CV. Dans la rubrique « Bilan comparatif — Wix et Codespaces » de `td2/rapport-td2.md`, répondez aux quatre questions sur votre utilisation de Wix, puis comparez-la à **une manipulation réellement effectuée** (fichier, terminal, port 8000). Cette comparaison n'est plus demandée au TD1.
+
 ## À conserver / déposer
 - `td2/guide-html.html` : page d’apprentissage, pas destinée au correcteur ;
 - `td2/rapport-td2.md` : vos observations et explications, à conserver ;
