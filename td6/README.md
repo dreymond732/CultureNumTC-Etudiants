@@ -44,6 +44,27 @@ SELECT id_commande, id_client FROM Commandes LIMIT 5;
 
 Vérifiez que la base affichée est `boutique_adminer.sqlite`. L'onglet SQL remplace les commandes `python3 -m sqlite3` du prototype : **le terminal sert uniquement à créer la base et lancer Adminer**.
 
+## Lire une requête en français — avant l'audit de l'IA
+
+Ouvrez `td6/requetes_decouverte.sql` : les **huit requêtes de découverte D1 à D8** y sont écrites intégralement, chacune suivie d'une courte explication en français. Exécutez-les **séparément** dans Adminer, sur la copie `boutique_adminer.sqlite`. Cette étape sert à reconnaître ce que fait une requête avant de juger celles d'une IA.
+
+| Requête | Lecture en français simple |
+| --- | --- |
+| D1 · `SELECT … FROM Clients LIMIT 5` | Montre au plus cinq identifiants et noms de clients |
+| D2 · `SELECT … FROM Commandes LIMIT 5` | Montre au plus cinq commandes et leur identifiant client |
+| D3 · `JOIN Clients … WHERE C001` | Retrouve le nom du client et la date de C001 |
+| D4 · `JOIN Clients … ORDER BY` | Associe chaque commande à son client, puis trie les commandes |
+| D5 · `FROM LignesCommande WHERE C001` | Détaille les produits, quantités et prix des lignes de C001 |
+| D6 · `JOIN Produits … WHERE C001` | Remplace les codes produits par leurs noms et affiche leurs prix en euros |
+| D7 · `SUM(quantite * prix) … C001` | Additionne les montants de toutes les lignes de C001 |
+| D8 · `JOIN … SUM(…) … Alice Martin` | Calcule le chiffre d'affaires d'Alice sur toutes ses commandes |
+
+**À essayer :** avant de regarder la phrase en français, observez les colonnes et les résultats de la requête. Êtes-vous capable de retrouver seul ce qu'elle calcule ou affiche ? Un mini-jeu à choix multiples est également proposé sur la page du TD6.
+
+**TIP — appartenance et conditions logiques dans SQL :** `IN (1, 2)` signifie « appartient à cette liste » ; pour une même colonne, `quantite IN (1, 2)` correspond à `quantite = 1 OR quantite = 2`. `OR` demande **au moins une** condition vraie ; `AND` demande **toutes** les conditions vraies **pour la ligne examinée** ; `NOT` inverse une condition (par exemple `NOT (quantite = 1)`). Ces opérateurs testent les lignes de la requête : ils ne suffisent pas, à eux seuls, à exprimer des achats réalisés sur plusieurs lignes distinctes.
+
+Référence syntaxique : [SQLite — Expressions](https://www.sqlite.org/lang_expr.html).
+
 ## Exercices à documenter dans `rapport-td6.md`
 
 1. **Schéma :** repérez clés primaires et étrangères dans Adminer et dans `generer_base.py`. Proposez un `CREATE TABLE` simplifié avec PK ; expliquez pourquoi l'adresse d'Alice est stockée une seule fois.
