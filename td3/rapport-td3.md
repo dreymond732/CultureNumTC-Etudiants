@@ -33,6 +33,7 @@
 - Comment ai-je vérifié que les **autres** produits n'étaient pas modifiés involontairement ?
 - Pourquoi une règle appliquée à tous les `article` ne répondrait-elle pas nécessairement à la question ?
 - Quel signe de focus clavier ai-je vu ou ajouté ?
+- Sélecteur d'élément choisi pour améliorer un titre (deux propriétés ajoutées) et justification de sa portée :
 
 ## Enquête 3 — Frise : cascade, cas particuliers et interaction
 
