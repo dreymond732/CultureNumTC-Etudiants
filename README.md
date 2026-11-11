@@ -6,9 +6,10 @@ Bienvenue dans le Codespace du cours de **BUT Techniques de commercialisation, T
 
 - **TD1** — [Mode d'emploi](td1/README.md), rapport `td1/rapport-td1.md`, fichiers d'exemples et terminal réseau simulé.
 - **TD2** — [Mode d'emploi](td2/README.md), rapport `td2/rapport-td2.md`, pages HTML de BUT-Boutique.
+- **TD3** — [Mode d'emploi](td3/README.md), diagnostic CSS de BUT-Boutique et frise de l'histoire du Web, sélecteurs, cascade et affichage responsive ; rapport `td3/rapport-td3.md`.
+- **TD4** — **Évaluation intermédiaire sur 20 points** : [Consignes pratiques](td4/README.md), rapport `td4/rapport-td4.md`, frise `td4/site-a/histoire-web.html` à modifier et page `td4/site-b/index.html` à laisser intacte.
 - **TD5** — [Mode d'emploi](td5/README.md), rapport `td5/rapport-td5.md`, jeu fictif de commandes et parcours WordPress Playground (Adminer et export ZIP).
 - **TD6** — [Mode d'emploi](td6/README.md), générateur SQLite depuis le CSV, requêtes d'IA à auditer et rapport `td6/rapport-td6.md`.
-- **TD4** — **Évaluation intermédiaire sur 20 points** : [Consignes pratiques](td4/README.md), rapport `td4/rapport-td4.md`, frise `td4/site-a/histoire-web.html` à modifier et page `td4/site-b/index.html` à laisser intacte.
 
 Les énoncés complets, le barème et les informations de remise figurent sur le **portail pédagogique CultureNumTC**.
 
