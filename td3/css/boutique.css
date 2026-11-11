@@ -1,0 +1,64 @@
+/* TD3 — CSS de départ pour BUT-Boutique.
+   La page comporte des problèmes d'apparence à diagnostiquer.
+   Gardez les éléments HTML, la navigation et les trois produits :
+   toute correction doit être ciblée et observable dans le navigateur. */
+:root {
+  --encre: #183047;
+  --bleu: #1262a3;
+  --papier: #f2f7fb;
+  --liseret: #d2dee9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--encre); background: var(--papier); font: 1rem/1.55 system-ui, sans-serif; }
+.lien-saut { position: absolute; top: -4rem; left: 1rem; background: white; padding: .5rem; }
+.lien-saut:focus { top: .5rem; z-index: 5; }
+.entete { background: #e4f0ff; padding: 2rem max(1.2rem, calc((100vw - 1100px)/2)); }
+.entete h1 { font-size: clamp(1.75rem, 3vw, 2.7rem); margin: .3rem 0; }
+.entete p { max-width: 65ch; }
+.etiquette { color: #305a85; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; font-size: .78rem; }
+.entete nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.2rem; }
+a { color: var(--bleu); }
+.entete nav a { font-weight: 650; }
+main { max-width: 1100px; margin: auto; padding: 2rem 1.2rem 3rem; }
+.section-titre { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.section-titre h2 { margin: .4rem 0 1.2rem; }
+.mention { color: #526779; }
+.grille-produits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+
+/* Zone 1 — styles communs aux fiches produit. */
+.produits {
+  min-width: 0;
+  background: white;
+  border: 2px solid var(--liseret);
+  border-radius: 14px;
+  padding: 1.1rem;
+  box-shadow: 0 4px 14px #17365312;
+}
+.produit h3 { font-size: 1.32rem; margin: .7rem 0 .3rem; }
+.produit p { margin: .3rem 0 .9rem; }
+.produit img { max-width: 100%; height: 140px; object-fit: contain; display: block; margin: auto; }
+.visuel-texte { height: 140px; display: grid; place-items: center; border-radius: 12px; background: #e7effd; font-size: 2rem; font-weight: 750; color: #205594; }
+.visuel-texte--vert { background: #e7f5eb; color: #207343; }
+.pastille { display: inline-block; padding: .15rem .55rem; background: #dbeafe; border-radius: 999px; font-size: .83rem; }
+.pastille--neutre { background: #e7ebf1; }
+.prix { font-size: 1.25rem; font-weight: 750; }
+
+/* Zone 2 — mettre en valeur UNE fiche, pas tout le catalogue. */
+#promotion { background: #e8f7e9; border-color: #31865b; }
+
+/* Zone 3 — le lien d'action doit rester lisible au repos, au survol
+   et lors de la navigation au clavier. */
+.action { display: inline-block; text-align: center; text-decoration: none; background: #eeeeee; color: #f2f2f2; padding: .65rem .8rem; border-radius: .6rem; font-weight: 700; }
+.action:hover { background: #e6e6e6; color: #f2f2f2; }
+.action:focus-visible { outline: none; }
+.information { margin-top: 2.5rem; padding: 1rem 1.3rem; background: white; border-left: 4px solid #6c93b9; }
+.information h2 { margin-top: 0; }
+footer { text-align: center; padding: 1rem; color: #486177; }
+
+/* Zone 4 — vérifier le passage de trois cartes à un écran étroit. */
+@media (max-width: 680px) {
+  .section-titre { display: block; }
+  .grille-produits { grid-template-columns: repeat(2, minmax(340px, 1fr)); }
+  .entete { padding: 1.2rem; }
+}
