@@ -34,7 +34,7 @@ chmod 600 "$COPIE"
 
 # Adminer est servi dans un répertoire temporaire distinct des bases SQLite.
 # Une authentification propre à l'interface est nécessaire : SQLite n'a pas de mot de passe.
-# Le code à 8 chiffres est court pour un usage sur tablette ; Codespaces port 8765
+# Le code à 8 chiffres est facile à saisir sur tout appareil ; Codespaces port 8765
 # doit rester PRIVATE (GitHub authentifie déjà l'accès à ce port).
 TMP="$(mktemp -d)"
 chmod 700 "$TMP"
@@ -117,7 +117,7 @@ PHP
 chmod 600 "$WEB/adminer-plugins.php"
 php -l "$WEB/adminer-plugins.php" >/dev/null
 
-# Un fichier d'accès temporaire est pratique pour l'éditeur VS Code sur tablette :
+# Un fichier d'accès temporaire est pratique dans l'éditeur VS Code, sur tout appareil :
 # on peut ouvrir ce fichier et sélectionner le code sans parcourir le terminal.
 # Il est ignoré par Git et supprimé à l'arrêt (Ctrl+C).
 umask 077
@@ -138,7 +138,7 @@ echo
 echo "==============================================================="
 echo "TD6 — Adminer sur le port $PORT (visibilité PRIVATE impérative)"
 echo "Code à 8 chiffres : $CODE"
-echo "SUR TABLETTE : ouvrez td6/ACCES_ADMINER.txt pour le recopier."
+echo "OUVREZ td6/ACCES_ADMINER.txt dans VS Code pour retrouver le code."
 echo "Le formulaire Adminer contient déjà la base et le système SQLite."
 echo "La copie boutique_adminer.sqlite est préservée à chaque relancement."
 echo "Ctrl+C pour arrêter le serveur et supprimer le fichier de code."
