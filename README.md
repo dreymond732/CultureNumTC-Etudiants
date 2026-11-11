@@ -49,7 +49,9 @@ Pendant le TD5, le site WordPress s'exécute dans un onglet de navigateur distin
 
 ## Conserver vos réponses sans Git
 
-**Nous n'utilisons pas les outils Git pour ces premiers TD.** Le dépôt de départ est public et appartient à l'enseignant. Ne faites pas de *push* ou de *fork* public avec vos réponses. Les fichiers modifiés dans votre Codespace ne sont pas automatiquement publiés sur GitHub.
+**ATTENTION — ne publiez pas vos modifications avec les boutons Git de Codespaces.** Le panneau **Contrôle de code source** repère les fichiers modifiés et peut proposer *Commit*, *Synchroniser*, *Push* ou *Publier une branche*. **NE CLIQUEZ PAS sur ces fonctions pour les TD.** Elles servent à gérer des versions avec Git : ce ne sont ni la sauvegarde demandée ni une procédure de remise. Le dépôt initial appartient à l'enseignant et est **public** ; publier un fork pourrait exposer vos réponses.
+
+**Ce qu'il faut faire :** enregistrez normalement vos fichiers dans votre Codespace (au besoin `Ctrl+S`), reprenez **le même Codespace** au prochain TD, et suivez **seulement la voie de remise précisée dans chaque TD** si un dépôt est demandé. Téléchargez une copie locale des productions importantes, car un Codespace supprimé ne conserve pas ses fichiers.
 
 Pour retrouver votre travail, reprenez le **même Codespace** depuis https://github.com/codespaces. Celui-ci peut être supprimé après une période d'inactivité : téléchargez une copie locale de vos rapports et pages importantes. Pour arrêter votre Codespace : **… → Stop codespace** sur cette page.
 
