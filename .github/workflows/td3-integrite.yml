@@ -1,0 +1,18 @@
+name: TD3 — intégrité du kit CSS
+
+on:
+  pull_request:
+    paths:
+      - "td3/**"
+      - "tests/test_td3_kit.py"
+      - ".github/workflows/td3-integrite.yml"
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier le kit TD3 et ses ressources relatives
+        run: python3 -m unittest discover -s tests -p 'test_td3_kit.py' -v
