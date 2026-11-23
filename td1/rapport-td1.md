@@ -23,13 +23,6 @@ Compléter avec mes propres mots la colonne de droite ; le premier exemple est f
 
 **Attention — public ou privé ?** Votre Codespace est personnel. Le dépôt de départ de BUT TC Toulon appartient à l’enseignant et est public. Une page rendue accessible par un **port Web public** ou un fichier publié sur un **dépôt GitHub public** peut être consulté par d’autres. **Nous n’utilisons pas les outils Git pour ces TD.** Ne publiez pas vos rapports ni de données personnelles.
 
-### Mon usage de Wix
-1. Je vois directement les fichiers HTML de mon CV (oui/non) :
-2. J'écris des commandes dans un terminal pour publier mon CV (oui/non) :
-3. Je démarre un serveur Web moi-même (oui/non) :
-4. Wix permet la publication sans transférer soi-même le HTML (oui/non) :
-5. Une différence concrète entre Wix et Codespaces :
-
 ## Exercice 2 — Retrouver et ouvrir un fichier
 - Poste local (ordinateur ou celui du voisin) : dossier où le fichier a été téléchargé :
 - Dans le navigateur, je vois :

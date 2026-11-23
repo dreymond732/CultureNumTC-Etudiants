@@ -54,3 +54,14 @@ Je complète ce document **pendant les exercices**. Je n’y renseigne pas de no
 - Ce que les commentaires m'ont appris :
 - Une limite de Copilot ou un élément que j'ai dû contrôler :
 - Une question pour le TD3 (CSS) :
+
+## Bilan comparatif — Wix et Codespaces (fin du TD2)
+Après avoir manipulé une page HTML, le terminal et le serveur Web privé de Codespaces, je compare avec **mon expérience réelle de Wix pour le CV**. Ces questions n'étaient pas demandées au TD1.
+
+1. Dans Wix, je vois directement le fichier HTML de mon CV (oui / non / cela dépend) :
+2. Dans Wix, j'ai dû écrire des commandes dans un terminal pour publier mon CV (oui / non) :
+3. Dans Wix, j'ai démarré moi-même un logiciel serveur Web (oui / non) :
+4. Wix affiche ou publie mon CV sans transfert manuel de son fichier HTML : qu'ai-je observé ?
+5. **Dans Codespaces, j'ai effectivement manipulé** ce fichier, cette commande ou cette fenêtre de port :
+
+**Ma comparaison argumentée (2–3 phrases, à partir de mes observations) :**
